@@ -19,9 +19,9 @@ let sequenceToGuess = [...sequence]
 //flashing random colour from array sequences
 const flash = (sector) => {
 return new Promise(resolve =>{
-   sector.className += 'active';
+   sector.className += ' active';
    setTimeout(() => {
-sector.className = sector.className.replace('active', '');
+sector.className = sector.className.replace(' active', '');
 //setting break time between double colour flashing
 setTimeout(() => {
     resolve();
@@ -47,7 +47,9 @@ const sectorClicked = sectorClicked => {
         //end game
         alert('Sorry, but you did mistake');
         
+        
     }
+    
     
 };
 

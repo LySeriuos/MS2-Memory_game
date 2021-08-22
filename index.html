@@ -7,19 +7,29 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
     <title>Document</title>
 </head>
-<body>
-    <div>
+
+<body align-text-center>  
+    <header class="header-style">
+        <h1>Memory Game</h1>
+    </header>
+ 
+    <div container-fluid>
+        <div class="row">
+        <div class="col my-col">
  <div onclick= "sectorClicked(event.currentTarget)"class="sector top-left-sector"></div>
  <div onclick= "sectorClicked(event.currentTarget)"class="sector top-right-sector"></div>
 </div>
-
-<div>
+<div class="row">
+    <div class="col my-col">
  <div onclick= "sectorClicked(event.currentTarget)"class="sector bottom-left-sector"></div>
  <div onclick= "sectorClicked(event.currentTarget)"class="sector bottom-right-sector"></div>
- <div class="inner-circle"></div>
+</div>
+</div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>   
