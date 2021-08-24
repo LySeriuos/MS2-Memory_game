@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap');
 /* Creating the memory game "Simon" style */ 
 /*Styling*/
 
@@ -10,10 +10,19 @@ body {
     background-color: black;
    
 }
+
 .my-col {
-    display: flex;
+   
     justify-content: center;
+    padding: 0;
+    }
+    .col-3 {
+      margin: 20px;
+    }
+.col-my-left {
+    color: blanchedalmond;
 }
+
 
 .header-style {
     color: #06C502;
@@ -22,9 +31,11 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
-    font-size: 48px;
+    font-size: 72px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 400;
 }
-/*Making a cricle of 4 pieces (sectors) in different colours and one circle in the middle*/
+/*Making a quadrant of 4 pieces (sectors) in different colours*/ 
 .sector {
   width: 240px;
   height: 240px;  
@@ -35,7 +46,7 @@ body {
  }
   
 .top-left-sector {    
-    /*background-color: red;*/
+    /*background-color: red;*/ 
     border: 10px solid red;    
 }
 
@@ -53,7 +64,7 @@ body {
     /* background-color: gold;*/
     border: 10px solid gold;    
 }
-
+ /* Colours when hoovering over the element */
 .top-left-sector:hover {
     background-color: rgba(255, 4, 4, 0.527);
 }
@@ -79,7 +90,15 @@ body {
    
 
     .active {
-        background-color: rgba(255, 255, 255, 0.705);
-        
+        background-color: rgba(255, 255, 255, 0.705);        
     }
+
     
+      
+        .row {
+          display: flex;
+          justify-content: space-between;
+
+        }
+      
+        
