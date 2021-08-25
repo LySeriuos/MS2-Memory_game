@@ -16,37 +16,55 @@
     <header class="header-style">
         <p>Memory Game</p>
     </header>
- 
-    <div container-fluid>
-        <div class="container-fluid">
-            <div class="row">
-            <div class="col-2 bg-success"><div class="col"><p>Testas</p>
-                <p>Testas</p>
-                <p>Testas</p>
-                <p>Testas</p>
-                <p>Testas</p></div>
-            </div>
-              <div class="col-8 bg-warning">
-                .col-8
-                <div class="row">
-                    <div class="col my-col">
-                        <div onclick= "sectorClicked(event.currentTarget)"class="sector top-left-sector"></div>
-                        <div onclick= "sectorClicked(event.currentTarget)"class="sector top-right-sector"></div>
-                       
-                        <div onclick= "sectorClicked(event.currentTarget)"class="sector bottom-left-sector"></div>
-                        <div onclick= "sectorClicked(event.currentTarget)"class="sector bottom-right-sector"></div>
-                       
-                       </div>
+<div class="container-fluid">
+    <div class="row row-1">
+    <div class="col-3 bg-success">
+        <div class="col">
+        <p>Testas</p>
+        <p>Testas</p>
+        <p>Testas</p>
+        <p>Testas</p>
+        <p>Testas</p>
+    </div>
+    </div>
+      
+        <div class="row row-2">
+          
+            <div class="col my-col"> 
+                <div onclick= "sectorClicked(event.currentTarget)"class="sector top-left-sector"></div>
+                <div onclick= "sectorClicked(event.currentTarget)"class="sector top-right-sector"></div>  
                 </div>
-              </div>
-              <div class="col-2 bg-success"><div class="col"><p>Testas</p>
-                            <p>Testas</p>
-                            <p>Testas</p>
-                            <p>Testas</p>
-                            <p>Testas</p></div>
-                        </div>
-            </div>
-          </div>
+              <div class="col my-col">
+                         
+                <div onclick= "sectorClicked(event.currentTarget)"class="sector bottom-left-sector"></div>
+                <div onclick= "sectorClicked(event.currentTarget)"class="sector bottom-right-sector"></div>
+               </div>
+               </div>
+               
+      <div class="col-3 bg-success"><div class="col"><p>Testas</p>
+                    <p>Testas</p>
+                    <p>Testas</p>
+                    <p>Testas</p>
+                    <p>Testas</p></div>
+                </div>
+    </div>
+  </div>
+  <div class="row row-3">
+    <div class="col my-col-bottom-left bg-success">
+        <ul>
+            <li>Start</li>
+            <li>Difficulty</li>
+            <li>Create a player</li>
+        </ul>
+    </div>
+        <div class="col my-col-bottom-right bg-success">
+            <ul>
+                <li>Start</li>
+                <li>Difficulty</li>
+                <li>Create a player</li>
+            </ul>
+    </div>
+        </div>
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>   
 </body>

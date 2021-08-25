@@ -44,6 +44,17 @@ body {
   border-radius: 50px;
   
  }
+
+ .row-3 {
+     margin:50px auto;
+ }
+ .col {
+     text-align: center;
+ }
+
+ .my-col-bottom-left {
+     justify-content: space-around;
+ }
   
 .top-left-sector {    
     /*background-color: red;*/ 
