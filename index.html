@@ -18,7 +18,7 @@
     </header>
 <div class="container-fluid">
     <div class="row row-1">
-    <div class="col-3 bg-success">
+    <div class="col-3 bg-success" id="column-order-2">
         <div class="col">
         <h4>Leader Board:</h4>
         <ul>
@@ -30,18 +30,19 @@
       
         <div class="row row-2">
           
-            <div class="col my-col"> 
+            <div class="col my-col col-quadrants-left"> 
                 <div onclick= "sectorClicked(event.currentTarget)"class="sector top-left-sector"></div>
                 <div onclick= "sectorClicked(event.currentTarget)"class="sector top-right-sector"></div>  
                 </div>
-              <div class="col my-col">
+              <div class="col my-col col-quadrants-right">
                          
                 <div onclick= "sectorClicked(event.currentTarget)"class="sector bottom-left-sector"></div>
                 <div onclick= "sectorClicked(event.currentTarget)"class="sector bottom-right-sector"></div>
                </div>
                </div>
                
-      <div class="col-3 bg-success"><div class="col">
+      <div class="col-3 bg-success align-text-center" id="column-order-1">
+          <div class="col mobile-template">
                     <h4>Scores:</h4>
                     <ul>
                     <h4>Difficulty Level:</h4>
@@ -54,7 +55,7 @@
                 </div>
     </div>
   </div>
-  <div class="row row-3 jsutify-space-around">
+  <div class="row row-3">
     <div class="col my-col-bottom-left bg-success">
         <ul>
             <li>Start</li>
