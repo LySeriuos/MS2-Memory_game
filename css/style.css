@@ -109,7 +109,23 @@ body {
         .row {
           display: flex;
           justify-content: space-between;
-
         }
-      
+
+        .my-col-bottom-left{
+            text-align: end;
+            list-style: none;
+        }
+
+        .my-col-bottom-right{
+            text-align: start;
+            list-style: none;
+                    }
+
+                    ul {
+                        padding: 0;
+                    }
+
+                    li {
+                        list-style: none;
+                    }
         
