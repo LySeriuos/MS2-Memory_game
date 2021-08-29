@@ -5,10 +5,11 @@
 /* styling body */ 
 
 body {
-    margin: 30px;
+    margin: 10px auto;
     position: relative;
-    background-color: black;
-   
+    background-color: #000000;
+   max-width: 1200px;
+   font-family: "Orbitron", sans-serif;
 }
 
 .my-col {
@@ -20,13 +21,17 @@ body {
 
     .col-3 {
       margin: 20px;
+      text-align: -webkit-center;
     }
+
 .col-my-left {
     color: blanchedalmond;
 }
+
 .col-quadrants-left {
     text-align: -webkit-right;
 }
+
 .col {
     width: 50%;
 }
@@ -34,7 +39,7 @@ body {
 .header-style {
     color: #06C502;
     display: flex;
-    margin: 20px;
+    margin: 100px 0 20px 0;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
@@ -44,14 +49,15 @@ body {
     text-align: center;
 }
 /*Making a quadrant of 4 pieces (sectors) in different colours*/ 
+
 .sector {
   width: 240px;
   height: 240px;  
   margin: 10px;
   cursor: pointer;
-  border-radius: 50px;
-  
+  border-radius: 50px;  
  }
+
 
  .row-3 {
      margin:50px auto;
@@ -104,13 +110,50 @@ body {
 
     /* Game action styling */
 
-   
+    .mobile-template {
+        width: 100%;
+    }
+
+    .my-col-bottom-left {
+        padding: 0;
+    }
+    .my-col-bottom-right {
+        padding: 0;
+    }
+    
+    .btn {
+        width: 240px;
+        height: 69px;
+        margin: 20px 0 0 20px;
+        color: #FFFFFF;
+        font-family: "Orbitron", sans-serif;
+        font-size: 21px;
+        padding: 0;
+    }   
+
+    .btn-left {
+        background-color: #3f0dd3b0;
+       
+    }
+
+    .btn-right {
+        background-color: #cae70bb0;
+        
+    }
 
     .active {
         background-color: rgba(255, 255, 255, 0.705);        
     }
+    
     h4 {
+        color: #06C502;
+        gap: 15px;
         padding: 10px;
+        
+    }
+
+    .row-2 {
+        width: 50%;
     }
 
     
@@ -137,7 +180,10 @@ body {
 
                     li {
                         list-style: none;
+                        color: #06C502;
                     }
+
+     /* Media styles*/               
 
     @media (max-width: 1199.98px) { 
                     #column-order-1 {
@@ -175,16 +221,30 @@ body {
         .sector {
             width: 160px;
             height: 160px;  
-        }        
+        }   
+        .btn {
+            width: 160px;
+            height: 69px;
+            margin: 10px 0 0 10px;
+            color: #FFFFFF;
+            font-family: "Orbitron", sans-serif;
+            font-size: 16px;
+            padding: 0;
+        }   
+        .h4, h4 {
+            font-size: 1.3rem;
+        }    
+        .header-style {
+            margin: 0 0 20px 0;
+        } 
            }
           
 
     @media (max-width: 400px) { 
         .sector {
             width: 120px;
-            height: 120px;  
-                      
-           }
+            height: 120px;                        
+           }          
     }
 
     @media (max-width: 300px) { 
@@ -194,3 +254,12 @@ body {
                       
            }
     }
+
+    @media (min-width: 1199.99px) { 
+        .col {
+            width: 50%;
+        }
+        .row {
+            flex-wrap: nowrap;
+        }
+        }
