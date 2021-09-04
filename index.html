@@ -65,7 +65,7 @@
   <div class="row row-3">
     <div class="col my-col-bottom-left">
         <ul>            
-            <li><button class="btn btn-primary btn-left" type="submit">Start</button></li>
+            <li><button class="btn btn-primary btn-left btn-start" type="submit">Start</button></li>
             <li><button class="btn btn-primary btn-left" type="submit">Difficulty</button></li>
             <li><button class="btn btn-primary btn-left" type="submit">Create a player</button></li>
         </ul>
@@ -86,9 +86,11 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Choose a player:</label>
-                            <select multiple class="form-control" id="exampleFormControlSelect2">
-                              <option>Player Nr.1</option>
-                          </select>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Player Nr.1</option>
+                                <option>Player Nr.2</option>
+                                <option>Player Nr.3</option>
+                              </select>
                           </div>
                         <div class="form-group">
                           <label for="exampleFormControlInput1">New Player:</label>
@@ -117,7 +119,7 @@
                         <li>Hard - Fastest game speed.</li>
                     </ol>
                 </li>   
-                <li id="no-style-button"><button class="btn btn-primary btn-left" id= "modal-button" type="submit">Start</button>
+                <li id="no-style-button"><button class="btn btn-primary btn-left btn-start" id= "modal-button close" type="submit">Start</button>
                 </li>                    
                 </ul>
                 </div>

@@ -10,10 +10,22 @@ $(document).ready(function(){
         $('#modal-container').hide();
     }
 
+    
+
     $('#close').click(function(){
         closeModal();
-    })
+    });
+
+    $('.btn-start').click(function(){
+        startFlashing(); 
+        closeModal();    
+        
+       });
+           
 })
+
+
+   
 
 
 // arrenging query solectors for colour sectors 

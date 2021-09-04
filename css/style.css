@@ -13,65 +13,6 @@ body {
    height: 100vh;
 }
 
-.modal-container {
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-
-}
-
-.modal{
-    color: #06C502;
-    background-color: black;
-    
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    overflow: scroll;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-    width: 500px;
-    height: 600px;
-    display: block;
-}
-
-.modal-content {
-    padding: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    list-style: circle;
-    text-align: center;
-
-}
-.modal-list li, ol{
-    list-style:circle;
-}
-
-.form-control {
-    background-color: black;
-    color: #06C502;
-    
-}
-
-.form-group .form-control::placeholder {
-    color: #06C502;
-}
-
-
-#modal-button {
-    width: 130px;
-    height: 60px;
-    }
-    #no-style-button {
-        list-style: none;
-    }
-
 .my-col {
    
     justify-content: center;
@@ -116,17 +57,7 @@ body {
   margin: 10px;
   cursor: pointer;
   border-radius: 50px;  
- }
-
-
- .row-3 {
-     margin:50px auto;
- }
- 
-
- .my-col-bottom-left {
-     justify-content: space-around;
- }
+ } 
   
 .top-left-sector {    
     /*background-color: red;*/ 
@@ -167,20 +98,32 @@ body {
      background-color:  rgba(255, 217, 0, 0.678);    
  }
 
+ /* "Active" or blinking sequnece color */
 
-    /* Game action styling */
+ .active {
+    background-color: rgba(255, 255, 255, 0.705);        
+}
+
+
+    /* Game template styling */
 
     .mobile-template {
         width: 100%;
     }
-
+    
     .my-col-bottom-left {
+        justify-content: space-around;
         padding: 0;
+        text-align: end;
+        list-style: none;
     }
+
     .my-col-bottom-right {
         padding: 0;
+        text-align: start;
+        list-style: none;
     }
-    
+
     .btn {
         width: 240px;
         height: 69px;
@@ -197,51 +140,105 @@ body {
     }
 
     .btn-right {
-        background-color: #cae70bb0;
-        
+        background-color: #cae70bb0;        
     }
 
-    .active {
-        background-color: rgba(255, 255, 255, 0.705);        
-    }
-    
     h4 {
         color: #06C502;
         gap: 15px;
-        padding: 10px;
-        
+        padding: 10px;        
     }
 
     .row-2 {
-        width: 50%;
+        width: 50%;    
     }
 
-    
-      
-        .row {
+    .row {
           display: flex;
           justify-content:space-evenly;
         }
        
-
-        .my-col-bottom-left {
-            text-align: end;
-            list-style: none;
+    .row-3 {
+        margin:50px auto;
         }
-
-        .my-col-bottom-right {
-            text-align: start;
-            list-style: none;
-                    }
-
-       .col ul {
+        
+    .col ul {
             padding: 0;
                     }
 
-       .col li {
+    .col li {
             list-style: none;
             color: #06C502;
                     }
+
+                    /* Modal styling */
+
+       .modal-container {
+           background-color: rgba(0, 0, 0, 0.6);
+           position: fixed;
+           top: 0;
+           bottom: 0;    
+           right: 0;
+           left: 0;       
+       }
+       
+       .modal {
+           color: #06C502;
+           background-color: black;           
+           border-radius: 5px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+           position: absolute;
+           overflow: auto;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           max-width: 100%;
+           width: 500px;
+           height: 600px;
+           display: block;
+       }
+                    
+       .modal-content {
+           padding: 1.2rem;
+           display: flex;
+           flex-direction: column;
+           background-color: black;   
+           text-align: center;
+       }
+       
+       .modal-list li, ol{
+           list-style:circle;
+       }
+       
+       .form-control {
+           background-color: black;
+           color: #06C502;           
+       }
+       
+       .form-group .form-control::placeholder {
+           color: #06C502;
+       }
+       
+       
+       #modal-button {
+           width: 130px;
+           height: 60px;
+           }
+
+       #no-style-button {
+               list-style: none;
+           }
+
+       .close-btn {
+           background-color: transparent;
+           font-size: 30px;           
+           color: #06C502; 
+           outline: none;
+           border: none;
+           margin-right: 15px;
+           margin-top: 15px;
+       }    
+                    
 
      /* Media styles*/               
 
