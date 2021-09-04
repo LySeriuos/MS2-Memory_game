@@ -7,16 +7,23 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>        
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
     <title>Document</title>
 </head>
 
 <body align-text-center>  
+
+    
     <header class="header-style">
         <p>Memory Game</p>
     </header>
+    
+        
+
 <div class="container-fluid">
+    
     <div class="row row-1">
     <div class="col-3" id="column-order-2">
         <div class="col">
@@ -70,8 +77,57 @@
             <li><button class="btn btn-primary btn-right" type="submit">Leaderboard</button></li>
             </ul>
     </div>
+    <div class="modal-container"id="modal-container">
+        <div class="modal" id="modal">
+            <button class="close-btn" id="close"><i class="fa fa-times"></i></button>
+            <div class="modal-content">
+                <div class="header">
+                    <h2 class="logo">Memory game </h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">Choose a player:</label>
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                              <option>Player Nr.1</option>
+                          </select>
+                          </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">New Player:</label>
+                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="player name">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlSelect1">Level:</label>
+                          <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Easy</option>
+                            <option>Medium</option>
+                            <option>Hard</option>
+                          </select>
+                        </div>                        
+                      </form>
+                    
+                    <h4>Rules:</h4>
+                    <ul class="modal-list"></ul>
+                    <ol>
+                    <li><p>You have to repeat blinked colors in the same sequences.</p></li>
+                    <li><p>+1 point - for each finished sequence, -1 point - for made mistake.</p></li>
+                    <li><p>You can't start before computer finish to blink sequence.</p></li>
+                    <li><p>Choose one of free difficulty levels:</p>
+                    <ol>
+                        <li>Easy - Slowest game speed.</li>
+                        <li>Medium - Medium game speed.</li>
+                        <li>Hard - Fastest game speed.</li>
+                    </ol>
+                </li>   
+                <li id="no-style-button"><button class="btn btn-primary btn-left" id= "modal-button" type="submit">Start</button>
+                </li>                    
+                </ul>
+                </div>
+            </div>
         </div>
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    </div>    
+</div>
+    
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>   
 </body>
 </html>

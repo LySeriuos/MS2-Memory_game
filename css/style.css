@@ -3,13 +3,49 @@
 /*Styling*/
 
 /* styling body */ 
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     margin: 10px auto;
     position: relative;
     background-color: #000000;
    max-width: 1200px;
    font-family: "Orbitron", sans-serif;
+}
+
+.modal-container {
+    background-color: blueviolet;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+}
+
+.modal{
+    color: cornsilk;
+    background-color: teal;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    width: 500px;
+    height: 300px;
+}
+
+.modal-content {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .my-col {

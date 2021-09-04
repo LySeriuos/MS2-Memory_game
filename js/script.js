@@ -1,3 +1,7 @@
+// Adding modal after uploading page 
+
+
+
 // arrenging query solectors for colour sectors 
 const topLeft = document.querySelector('.top-left-sector');
 const topRight = document.querySelector('.top-right-sector');
@@ -45,12 +49,8 @@ const sectorClicked = sectorClicked => {
        
     } else {
         //end game
-        alert('Sorry, but you did mistake');
-        
-        
-    }
-    
-    
+        alert('Sorry, but you did mistake');       
+    }   
 };
 
 
