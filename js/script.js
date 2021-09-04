@@ -1,5 +1,19 @@
 // Adding modal after uploading page 
+$(document).ready(function(){
+  
+    function showModal(){
+     $('#modal-container').show();
+     $('html body').css('overflow', 'hidden');
+    }
 
+    function closeModal(){
+        $('#modal-container').hide();
+    }
+
+    $('#close').click(function(){
+        closeModal();
+    })
+})
 
 
 // arrenging query solectors for colour sectors 
