@@ -3,21 +3,18 @@
 /*Styling*/
 
 /* styling body */ 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 body {
     margin: 10px auto;
     position: relative;
     background-color: #000000;
    max-width: 1200px;
    font-family: "Orbitron", sans-serif;
+   height: 100vh;
 }
 
 .modal-container {
-    background-color: blueviolet;
+    background-color: rgba(0, 0, 0, 0.6);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -27,26 +24,53 @@ body {
 }
 
 .modal{
-    color: cornsilk;
-    background-color: teal;
+    color: #06C502;
+    background-color: black;
+    
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: absolute;
-    overflow: hidden;
+    overflow: scroll;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%;
     width: 500px;
-    height: 300px;
+    height: 600px;
+    display: block;
 }
 
 .modal-content {
     padding: 1.2rem;
     display: flex;
     flex-direction: column;
+    background-color: black;
+    list-style: circle;
+    text-align: center;
 
 }
+.modal-list li, ol{
+    list-style:circle;
+}
+
+.form-control {
+    background-color: black;
+    color: #06C502;
+    
+}
+
+.form-group .form-control::placeholder {
+    color: #06C502;
+}
+
+
+#modal-button {
+    width: 130px;
+    height: 60px;
+    }
+    #no-style-button {
+        list-style: none;
+    }
 
 .my-col {
    
@@ -200,23 +224,23 @@ body {
         }
        
 
-        .my-col-bottom-left{
+        .my-col-bottom-left {
             text-align: end;
             list-style: none;
         }
 
-        .my-col-bottom-right{
+        .my-col-bottom-right {
             text-align: start;
             list-style: none;
                     }
 
-                    ul {
-                        padding: 0;
+       .col ul {
+            padding: 0;
                     }
 
-                    li {
-                        list-style: none;
-                        color: #06C502;
+       .col li {
+            list-style: none;
+            color: #06C502;
                     }
 
      /* Media styles*/               
