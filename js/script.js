@@ -17,9 +17,9 @@ $(document).ready(function(){
     });
 
     $('.btn-start').click(function(){
-        startFlashing(); 
-        closeModal();    
+        setTimeout(function(){startFlashing();},1000);        
         
+        closeModal();           
        });
            
 })
