@@ -8,24 +8,34 @@ $(document).ready(function(){
 
     function closeModal(){
         $('#modal-container').hide();
-    }
+    };
+   
 
-    
+    // Game will start and modal will close after pressing button "Start"  
 
     $('#close').click(function(){
         closeModal();
     });
 
-    $('.btn-start').click(function(){
+    $('.btn-start').click(function(){        
         setTimeout(function(){startFlashing();},1000);        
-        
         closeModal();           
-       });
-           
-})
+       });           
+});
+
+// Adding new player to an array. Array will be used to choose existing player. 
+
+var arrPlayers = [];
+
+function add() {    
+    $('.name_form input[type="text"]').each(function(){ arrPlayers.push($(this).val()); });
+    console.log(arrPlayers); 
+    document.getElementById("exampleFormControlInput1").value = '';
+    };
+
+$('#add').on('click', add); 
 
 
-   
 
 
 // arrenging query solectors for colour sectors 
