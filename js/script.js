@@ -18,24 +18,43 @@ $(document).ready(function(){
     });
 
     $('.btn-start').click(function(){        
-        setTimeout(function(){startFlashing();},1000);        
-        closeModal();           
+        setTimeout(function(){startFlashing();},1000); 
+        closeModal(); 
+                  
        });           
 });
 
-// Adding new player to an array. Array will be used to choose existing player. 
+// Adding new player to an array and saving it to local.storage 
 
-var arrPlayers = [];
+    var arrPlayers = [];
+    var storedNames = JSON.parse(localStorage.arrPlayers);
+    console.log(storedNames);
 
-function add() {    
+    $('#modal_button').click(function add() {    
     $('.name_form input[type="text"]').each(function(){ arrPlayers.push($(this).val()); });
-    console.log(arrPlayers); 
     document.getElementById("exampleFormControlInput1").value = '';
-    };
+    localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));    
+    });    
+    $('#modal_button').on('click', add);
 
-$('#add').on('click', add); 
+    
+
+   
+
+    const modalButton = document.querySelector('#modal_button');
+    const testingUpdate = document.querySelector('#testingUpdate');
+
+    modalButton.onclick = function() {
+        let name = arrPlayers[arrPlayers.length - 1];
+        testingUpdate.textContent = name;
+      }
+     
+    
+    
 
 
+    
+   
 
 
 // arrenging query solectors for colour sectors 
