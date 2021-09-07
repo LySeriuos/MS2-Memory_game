@@ -32,13 +32,13 @@ $(document).ready(function(){
     arrPlayers = (arrPlayers) ? JSON.parse(arrPlayers) : [];
     console.log(arrPlayers);
     
+    
     function add() {  
         var obj = {};  
     $('.name_form input[type="text"]').each(function(){ arrPlayers.push($(this).val()); });
     document.getElementById("exampleFormControlInput1").value = '';
-    localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));
     
-
+    localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));
     };    
     $('#modal_button').on('click', add);
    
@@ -52,20 +52,18 @@ $(document).ready(function(){
       }
      
       // To use saved names in local storage for future game players name selection
-    
-    let list = document.getElementById("exampleFormControlSelect1");
-  
-    arrPlayers.forEach((item)=>{
-  let li = document.createElement("li");
-  li.innerText = item;
-  list.appendChild(li);
-})
+       
+      var select = document.getElementById("exampleFormControlSelect1"); 
+      var players = JSON.parse(localStorage.getItem("arrPlayers"));
 
-          
-
-    
-   
-
+      for(var i = 0; i < players.length; i++) {
+    var opt = players[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    $("#exampleFormControlSelect1 option[value='yourValue']").length > 0;
+} 
 
 // arrenging query solectors for colour sectors 
 const topLeft = document.querySelector('.top-left-sector');
