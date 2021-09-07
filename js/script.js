@@ -26,21 +26,23 @@ $(document).ready(function(){
 
 // Adding new player to an array and saving it to local.storage 
 
-    var arrPlayers = [];
-    var storedNames = JSON.parse(localStorage.arrPlayers);
-    console.log(storedNames);
-
-    $('#modal_button').click(function add() {    
+    //let arrPlayers = [];
+    //let storedNames = JSON.parse(localStorage.arrPlayers);
+    var arrPlayers = localStorage.getItem("arrPlayers");
+    arrPlayers = (arrPlayers) ? JSON.parse(arrPlayers) : [];
+    console.log(arrPlayers);
+    
+    function add() {  
+        var obj = {};  
     $('.name_form input[type="text"]').each(function(){ arrPlayers.push($(this).val()); });
     document.getElementById("exampleFormControlInput1").value = '';
-    localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));    
-    });    
-    $('#modal_button').on('click', add);
-
+    localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));
     
 
+    };    
+    $('#modal_button').on('click', add);
    
-
+// The last provided player name is showing in the game as current player. 
     const modalButton = document.querySelector('#modal_button');
     const testingUpdate = document.querySelector('#testingUpdate');
 
@@ -49,9 +51,17 @@ $(document).ready(function(){
         testingUpdate.textContent = name;
       }
      
+      // To use saved names in local storage for future game players name selection
     
-    
+    let list = document.getElementById("exampleFormControlSelect1");
+  
+    arrPlayers.forEach((item)=>{
+  let li = document.createElement("li");
+  li.innerText = item;
+  list.appendChild(li);
+})
 
+          
 
     
    
