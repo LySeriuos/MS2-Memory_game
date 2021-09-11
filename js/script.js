@@ -26,10 +26,14 @@ $(document).ready(function(){
 
 // Adding new player to an array and saving it to local.storage 
 
-    //let arrPlayers = [];
-    //let storedNames = JSON.parse(localStorage.arrPlayers);
     var arrPlayers = localStorage.getItem("arrPlayers");
     arrPlayers = (arrPlayers) ? JSON.parse(arrPlayers) : [];
+    temp = [];
+
+for(let i of arrPlayers)
+    i && temp.push(i); // copy each non-empty value to the 'temp' array
+
+arrPlayers = temp;
     console.log(arrPlayers);
     
     
@@ -48,8 +52,10 @@ $(document).ready(function(){
 
     modalButton.onclick = function() {
         let name = arrPlayers[arrPlayers.length - 1];
+        console.log(name);
         testingUpdate.textContent = name;
-      }
+           val();   
+      };
      
       // To use saved names in local storage for future game players name selection
        
@@ -62,8 +68,16 @@ $(document).ready(function(){
     el.textContent = opt;
     el.value = opt;
     select.appendChild(el);
-    $("#exampleFormControlSelect1 option[value='yourValue']").length > 0;
-} 
+    $("#exampleFormControlSelect1 option[value='yourValue']").length > 1; // I'm using 1 for not showing up empty list options when choosing player.
+    };
+
+    // selected player is showing in the game as a current player.
+    function val() {
+    let chosePlayer = document.getElementById("exampleFormControlSelect1").value;
+    testingUpdate.textContent = chosePlayer;
+};
+
+
 
 // arrenging query solectors for colour sectors 
 const topLeft = document.querySelector('.top-left-sector');
