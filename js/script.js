@@ -55,7 +55,8 @@ arrPlayers = temp;
         console.log(name);
         testingUpdate.textContent = name;
            val(); 
-           dif();  
+           dif();
+             
       };
      
       // To use saved names in local storage for future game players name selection
@@ -82,6 +83,18 @@ function dif() {
     let difLevel = document.getElementById("exampleFormControlSelect2").value; 
     difficulty.textContent =difLevel;
 };
+
+   // counting scores of the game, one finished sequence one score
+function incrementScore(){
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
+    };
+
+    // counting scores of the game, one wrong guess minus one score
+function reductionScore(){
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = --oldScore;
+    };
 
    
 
@@ -133,11 +146,14 @@ const sectorClicked = sectorClicked => {
     sequence.push(getRandomSector());
     sequenceToGuess = [...sequence];
     startFlashing();
+    incrementScore()
+    
         }
        
     } else {
         //end game
-        alert('Sorry, but you did mistake');       
+        alert('Sorry, but you did mistake');  
+        reductionScore()     
     }   
 };
 
