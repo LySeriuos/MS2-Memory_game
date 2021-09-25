@@ -149,6 +149,12 @@ body {
         padding: 10px;        
     }
 
+    h5 {
+        color: #06C502;
+        gap: 15px;
+        padding: 10px; 
+    }
+
     .row-2 {
         width: 50%;    
     }

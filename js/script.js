@@ -54,7 +54,8 @@ arrPlayers = temp;
         let name = arrPlayers[arrPlayers.length - 1];
         console.log(name);
         testingUpdate.textContent = name;
-           val();   
+           val(); 
+           dif();  
       };
      
       // To use saved names in local storage for future game players name selection
@@ -73,9 +74,19 @@ arrPlayers = temp;
 
     // selected player is showing in the game as a current player.
     function val() {
-    let chosePlayer = document.getElementById("exampleFormControlSelect1").value;
+    let chosePlayer = document.getElementById("exampleFormControlSelect1").value; 
     testingUpdate.textContent = chosePlayer;
 };
+   // showing dificullty level in the game
+function dif() {
+    let difLevel = document.getElementById("exampleFormControlSelect2").value; 
+    difficulty.textContent =difLevel;
+};
+
+   
+
+   
+
 
 
 
