@@ -21,12 +21,34 @@ $(document).ready(function(){
         setTimeout(function(){startFlashing();},1000); 
         closeModal(); 
                   
-       });           
+       }); 
+
+       $('.btnRules').click(function(){
+        showModal();
+    });
+
+    $('.btnDiff').click(function(){
+        showModal();
+    });
+
+    $('.btnCreate').click(function(){
+        showModal();
+    });
+
+    $('.btnChoossPlayer').click(function(){
+    
+        showModal();
+    });
+
+    
+
+   
+
 });
 
 // Adding new player to an array and saving it to local.storage 
 
-    var arrPlayers = localStorage.getItem("arrPlayers");
+    let arrPlayers = localStorage.getItem("arrPlayers");
     arrPlayers = (arrPlayers) ? JSON.parse(arrPlayers) : [];
     temp = [];
 
@@ -38,29 +60,43 @@ arrPlayers = temp;
     
     
     function add() {  
-        var obj = {};  
+          
     $('.name_form input[type="text"]').each(function(){ arrPlayers.push($(this).val()); });
     document.getElementById("exampleFormControlInput1").value = '';
-    
+   
     localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));
-    };    
+    testingUpdate.textContent = arrPlayers[arrPlayers.length - 1];
+        };
+
     $('#modal_button').on('click', add);
+
+    //Pressing rules button opening rules in modal
+   
+    
+       
+    
+
+    
    
 // The last provided player name is showing in the game as current player. 
-    const modalButton = document.querySelector('#modal_button');
-    const testingUpdate = document.querySelector('#testingUpdate');
+    let modalButton = document.querySelector('#modal_button');
+    let testingUpdate = document.querySelector('#testingUpdate');
 
-    modalButton.onclick = function() {
-        let name = arrPlayers[arrPlayers.length - 1];
-        console.log(name);
-        testingUpdate.textContent = name;
-           val(); 
-           dif();
-             
-      };
-     
+    function val() {
+        let chosePlayer = select.value; 
+        console.log(chosePlayer);
+        testingUpdate.textContent = chosePlayer;
+    };
+
+        
+    $("#btnRules").on("click", function() {
+        $("#modal").show();
+    });
+   
+
+
       // To use saved names in local storage for future game players name selection
-       
+
       var select = document.getElementById("exampleFormControlSelect1"); 
       var players = JSON.parse(localStorage.getItem("arrPlayers"));
 
@@ -71,17 +107,16 @@ arrPlayers = temp;
     el.value = opt;
     select.appendChild(el);
     $("#exampleFormControlSelect1 option[value='yourValue']").length > 1; // I'm using 1 for not showing up empty list options when choosing player.
+    val();
     };
+    
 
     // selected player is showing in the game as a current player.
-    function val() {
-    let chosePlayer = document.getElementById("exampleFormControlSelect1").value; 
-    testingUpdate.textContent = chosePlayer;
-};
+    
    // showing dificullty level in the game
 function dif() {
     let difLevel = document.getElementById("exampleFormControlSelect2").value; 
-    difficulty.textContent =difLevel;
+    difficulty.textContent = difLevel;
 };
 
    // counting scores of the game, one finished sequence one score
@@ -90,13 +125,14 @@ function incrementScore(){
     document.getElementById("score").innerText = ++oldScore;
     };
 
-    // counting scores of the game, one wrong guess minus one score
-function reductionScore(){
-    let oldScore = parseInt(document.getElementById("score").innerText);
-    document.getElementById("score").innerText = --oldScore;
-    };
+    function reductionScore(){
+        let oldScore = parseInt(document.getElementById("score").innerText);
+        document.getElementById("score").innerText = --oldScore;
+        };
+    
 
-   
+    
+  
 
    
 
@@ -147,7 +183,6 @@ const sectorClicked = sectorClicked => {
     sequenceToGuess = [...sequence];
     startFlashing();
     incrementScore()
-    
         }
        
     } else {

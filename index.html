@@ -67,15 +67,15 @@
     <div class="col my-col-bottom-left">
         <ul>            
             <li><button class="btn btn-primary btn-left btn-start" type="submit">Start</button></li>
-            <li><button class="btn btn-primary btn-left" type="submit">Difficulty</button></li>
-            <li><button class="btn btn-primary btn-left" type="submit">Create a player</button></li>
+            <li><button class="btn btn-primary btn-left btnDiff" type="submit">Difficulty</button></li>
+            <li><button class="btn btn-primary btn-left btnCreate" type="submit">Create a player</button></li>
         </ul>
     </div>
         <div class="col my-col-bottom-right">
             <ul>
-            <li><button class="btn btn-primary btn-right" type="submit">Rules</button></li>
-            <li><button class="btn btn-primary btn-right" type="submit">Choose a player</button></li>
-            <li><button class="btn btn-primary btn-right" type="submit">Leaderboard</button></li>
+            <li><button class="btn btn-primary btn-right btnRules" type="submit" >Rules</button></li>
+            <li><button class="btn btn-primary btn-right btnChoossPlayer" id="jump_to_this_location" type="submit">Choose a player</button></li>
+            <li><button class="btn btn-primary btn-right btnLeaderboard" type="submit">Leaderboard</button></li>
             </ul>
     </div>
     <div class="modal-container"id="modal-container">
@@ -87,7 +87,8 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Choose a player:</label>
-                            <select class="form-control" onchange="val()" id="exampleFormControlSelect1" >                                                           
+                            <select class="form-control" onchange="val()" id="exampleFormControlSelect1" > 
+                                <option hidden disabled selected value>  </option>                                                          
                               </select>
                           </div>
                         <div class="form-group name_form">
