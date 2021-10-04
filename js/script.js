@@ -40,7 +40,9 @@ $(document).ready(function(){
         showModal();
     });
 
-    
+    $("#btnRules").on("click", function() {
+        $("#modal").show();
+    });
 
    
 
@@ -68,30 +70,30 @@ arrPlayers = temp;
     testingUpdate.textContent = arrPlayers[arrPlayers.length - 1];
         };
 
-    $('#modal_button').on('click', add);
-
-    //Pressing rules button opening rules in modal
-   
     
-       
-    
-
     
    
+
 // The last provided player name is showing in the game as current player. 
     let modalButton = document.querySelector('#modal_button');
     let testingUpdate = document.querySelector('#testingUpdate');
 
-    function val() {
+    function chosePlayer() {
         let chosePlayer = select.value; 
         console.log(chosePlayer);
         testingUpdate.textContent = chosePlayer;
+        
     };
 
+    $('#modal_button').click(function(){
+        if($('#exampleFormControlInput1').val() == ''){
+            chosePlayer();           
+        } else {
+            add();
+        }
+     });
         
-    $("#btnRules").on("click", function() {
-        $("#modal").show();
-    });
+    
    
 
 
@@ -107,7 +109,7 @@ arrPlayers = temp;
     el.value = opt;
     select.appendChild(el);
     $("#exampleFormControlSelect1 option[value='yourValue']").length > 1; // I'm using 1 for not showing up empty list options when choosing player.
-    val();
+    
     };
     
 
@@ -123,6 +125,8 @@ function dif() {
 function incrementScore(){
     let oldScore = parseInt(document.getElementById("score").innerText);
     document.getElementById("score").innerText = ++oldScore;
+    console.log(oldScore);
+    
     };
 
     function reductionScore(){
