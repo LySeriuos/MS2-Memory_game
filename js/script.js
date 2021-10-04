@@ -80,7 +80,6 @@ arrPlayers = temp;
 
     function chosePlayer() {
         let chosePlayer = select.value; 
-        console.log(chosePlayer);
         testingUpdate.textContent = chosePlayer;
         
     };
@@ -103,6 +102,7 @@ arrPlayers = temp;
       var players = JSON.parse(localStorage.getItem("arrPlayers"));
 
       for(var i = 0; i < players.length; i++) {
+         
     var opt = players[i];
     var el = document.createElement("option");
     el.textContent = opt;
@@ -125,8 +125,13 @@ function dif() {
 function incrementScore(){
     let oldScore = parseInt(document.getElementById("score").innerText);
     document.getElementById("score").innerText = ++oldScore;
-    console.log(oldScore);
+    console.log(oldScore); 
     
+    let currrentPlayer = document.querySelector('#testingUpdate').textContent;
+    console.log(currrentPlayer);   
+    let playerInfo = {name:currrentPlayer, score: oldScore};   
+    console.log(playerInfo);
+
     };
 
     function reductionScore(){
@@ -134,8 +139,9 @@ function incrementScore(){
         document.getElementById("score").innerText = --oldScore;
         };
     
-
-    
+        
+        let highScore =  document.querySelector('#score').innerText;
+        console.log(highScore);
   
 
    
