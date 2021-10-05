@@ -35,9 +35,9 @@ $(document).ready(function(){
         showModal();
     });
 
-    $('.btnChoossPlayer').click(function(){
-    
+    $('.btnChoossPlayer').click(function(){       
         showModal();
+        
     });
 
     $("#btnRules").on("click", function() {
@@ -125,12 +125,36 @@ function dif() {
 function incrementScore(){
     let oldScore = parseInt(document.getElementById("score").innerText);
     document.getElementById("score").innerText = ++oldScore;
-    console.log(oldScore); 
+    
     
     let currrentPlayer = document.querySelector('#testingUpdate').textContent;
     console.log(currrentPlayer);   
     let playerInfo = {name:currrentPlayer, score: oldScore};   
-    console.log(playerInfo);
+    
+    // converting objects to a array
+    
+    
+
+   
+// Put array into storage
+    
+
+
+var playerStats = [];
+
+playerStats = JSON.parse(localStorage.getItem('playerStats'));
+playerStats.push(playerInfo);
+localStorage.setItem('playerStats', JSON.stringify(playerStats));
+let bele = JSON.parse(localStorage.getItem('playerStats')); // Returns ["yes"]
+console.log(bele);
+
+
+
+
+
+
+    
+    
 
     };
 
@@ -140,8 +164,7 @@ function incrementScore(){
         };
     
         
-        let highScore =  document.querySelector('#score').innerText;
-        console.log(highScore);
+        
   
 
    
