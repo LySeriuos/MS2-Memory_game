@@ -131,18 +131,18 @@ function incrementScore(){
     
     let currrentPlayer = document.querySelector('#testingUpdate').textContent;
     console.log(currrentPlayer);   
-    let playerInfo = {name:currrentPlayer, score: oldScore};   
+    let playerInfo = {"name" :currrentPlayer, "score": oldScore};   
     
     // converting objects to a array and putting array into local.storage
     // saving only incrementScore because I will need only info for highest scores
-    
-    let playerStats = [];
-    playerStats = JSON.parse(localStorage.getItem('playerStats'));
+    // Parse the serialized data back into an aray of objects
+    playerStats = JSON.parse(localStorage.getItem('session')) || [];
+    // Push the new data onto the array
     playerStats.push(playerInfo);
-    playerStats = localStorage.setItem('playerStats', JSON.stringify(playerStats));
-    let bele = JSON.parse(localStorage.getItem('playerStats')); 
-    
-    console.log(bele);
+    // Re-serialize the array back into a string and store it in localStorage
+    localStorage.setItem('session', JSON.stringify(playerStats));
+    console.log(playerStats);
+
     
    
 
