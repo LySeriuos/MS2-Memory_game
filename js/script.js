@@ -18,7 +18,7 @@ $(document).ready(function(){
     });
 
     $('.btn-start').click(function(){        
-        setTimeout(function(){startFlashing();},1000); 
+        setTimeout(function(){startFlashing()},1000); 
         closeModal(); 
                   
        }); 
@@ -100,17 +100,19 @@ arrPlayers = temp;
 
       var select = document.getElementById("exampleFormControlSelect1"); 
       var players = JSON.parse(localStorage.getItem("arrPlayers"));
-
+      
+        if (players != null) {
       for(var i = 0; i < players.length; i++) {
-         
+        
+    
     var opt = players[i];
     var el = document.createElement("option");
     el.textContent = opt;
     el.value = opt;
     select.appendChild(el);
-    $("#exampleFormControlSelect1 option[value='yourValue']").length > 1; // I'm using 1 for not showing up empty list options when choosing player.
+    $("#exampleFormControlSelect1 option[value='yourValue']").length > 0; // I'm using 1 for not showing up empty list options when choosing player.
     
-    };
+      }};
     
 
     // selected player is showing in the game as a current player.
@@ -131,48 +133,27 @@ function incrementScore(){
     console.log(currrentPlayer);   
     let playerInfo = {name:currrentPlayer, score: oldScore};   
     
-    // converting objects to a array
+    // converting objects to a array and putting array into local.storage
+    // saving only incrementScore because I will need only info for highest scores
     
+    let playerStats = [];
+    playerStats = JSON.parse(localStorage.getItem('playerStats'));
+    playerStats.push(playerInfo);
+    playerStats = localStorage.setItem('playerStats', JSON.stringify(playerStats));
+    let bele = JSON.parse(localStorage.getItem('playerStats')); 
     
-
+    console.log(bele);
+    
    
-// Put array into storage
-    
 
-
-var playerStats = [];
-
-playerStats = JSON.parse(localStorage.getItem('playerStats'));
-playerStats.push(playerInfo);
-localStorage.setItem('playerStats', JSON.stringify(playerStats));
-let bele = JSON.parse(localStorage.getItem('playerStats')); // Returns ["yes"]
-console.log(bele);
-
-
-
-
-
-
-    
-    
-
-    };
+};
 
     function reductionScore(){
         let oldScore = parseInt(document.getElementById("score").innerText);
         document.getElementById("score").innerText = --oldScore;
         };
     
-        
-        
-  
-
-   
-
-
-
-
-// arrenging query solectors for colour sectors 
+        // arrenging query solectors for colour sectors 
 const topLeft = document.querySelector('.top-left-sector');
 const topRight = document.querySelector('.top-right-sector');
 const bottomLeft = document.querySelector('.bottom-left-sector');
