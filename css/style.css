@@ -20,6 +20,10 @@ body {
     
     }
 
+    #topThree {
+        color: #06C502;
+    }
+
     .col-3 {
       margin: 20px;
       text-align: -webkit-center;

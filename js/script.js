@@ -131,7 +131,8 @@ function incrementScore(){
     
     let currrentPlayer = document.querySelector('#testingUpdate').textContent;
     console.log(currrentPlayer);   
-    let playerInfo = {"name" :currrentPlayer, "score": oldScore};   
+    let playerInfo = {"name" :currrentPlayer, "score": oldScore};  
+    console.log(playerInfo); 
     
     // converting objects to a array and putting array into local.storage
     // saving only incrementScore because I will need only info for highest scores
@@ -142,9 +143,56 @@ function incrementScore(){
     // Re-serialize the array back into a string and store it in localStorage
     localStorage.setItem('session', JSON.stringify(playerStats));
     console.log(playerStats);
+     let uniqueObjArray = [
+         ...new Map(playerStats.map((item) => [item["name"], item])).values(),
+     ];
 
-    
-   
+     let test_uniqueObjArray_map = playerStats.map((item) => [
+         item["score"], item
+        ]);
+        
+
+        let test_uniqueObjArray_NewMap = new Map(test_uniqueObjArray_map);
+
+        let test_uniqueObjArray_NewMap_keys = test_uniqueObjArray_NewMap.keys();
+
+        
+
+        let test_uniqueObjArray_NewMap_values = test_uniqueObjArray_NewMap.values();
+
+        
+
+        let test_uniqueObjArray_NewMap_values_asArray = [...test_uniqueObjArray_NewMap_values];
+       
+
+       
+
+        //Showing players with top three scores in the Leader Board.
+
+        let topThree = test_uniqueObjArray_NewMap_values_asArray.slice(Math.max(test_uniqueObjArray_NewMap_values_asArray.length - 3, 1))
+        
+
+        let listTop = document.getElementById("topThree");
+        
+             listTop.innerHTML = topThree.map(topThree => {
+                   return `<li>${topThree.name}-${topThree.score}</li>`;
+               })
+               .reverse()
+               .join("");
+
+        
+        //showing the highest scores of current player
+
+        result = playerStats.reduce((a, {name, score}) => {
+            if (name.includes(currrentPlayer)) a.push({name, score});
+            return a;
+          }, []);
+        
+        console.log(result);
+
+       let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
+       document.getElementById("highScore").textContent = highScores;
+       
 
 };
 
