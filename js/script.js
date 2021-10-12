@@ -20,11 +20,10 @@ $(document).ready(function(){
     $('.btn-start').click(function(){        
         setTimeout(function(){startFlashing()},1000); 
         closeModal(); 
-        
           
        }); 
 
-       $('.btnRules').click(function(){
+    $('.btnRules').click(function(){
         showModal();
     });
 
@@ -45,8 +44,9 @@ $(document).ready(function(){
         $("#modal").show();
     });
 
-   
-
+    $(".btn-start-game").on("click", function() {
+        startFlashing();
+    });    
 });
 
 // Adding new player to an array and saving it to local.storage 
@@ -61,9 +61,9 @@ for(let i of arrPlayers)
 arrPlayers = temp;
     console.log(arrPlayers);
     
-    
-    function add() {  
-          
+    // The last provided player name is showing in the game as current player.
+
+    function add() {            
     $('.name_form input[type="text"]').each(function(){ arrPlayers.push($(this).val()); });
     document.getElementById("exampleFormControlInput1").value = '';
    
@@ -71,11 +71,8 @@ arrPlayers = temp;
     testingUpdate.textContent = arrPlayers[arrPlayers.length - 1];
         };
 
-    
-    
-   
-
-// The last provided player name is showing in the game as current player. 
+ // selected player is showing in the game as a current player.   
+ 
     let modalButton = document.querySelector('#modal_button');
     let testingUpdate = document.querySelector('#testingUpdate');
 
@@ -110,13 +107,6 @@ arrPlayers = temp;
     
       }};
     
-
-    // selected player is showing in the game as a current player.
-    
-   
-    
-
-
    // counting scores of the game, one finished sequence one score
 function incrementScore(){
     let oldScore = parseInt(document.getElementById("score").innerText);
@@ -195,7 +185,7 @@ const bottomRight = document.querySelector('.top-right-sector');
 
 const sequences = [topLeft, bottomLeft, bottomRight, topRight];
 
-// showing dificullty level in the game and made cinditions for each level
+// showing dificullty level in the game and made conditions for each level
 
 let x = 500;
   let y = 1000;
@@ -210,18 +200,17 @@ let x = 500;
     clearTimeout()
      x = 500;
    y = 500;
-   alert("hahaha");
+   
 } else if (difLevel === "Hard"){
     clearTimeout()
      x = 250;
    y = 250;
-   alert("pavyko");
-   } else {
+
+    } else {
     clearTimeout()
     x = 500;
     y = 1000; 
    }
-
 };
 //getting length of the sector and picking a random index   
 const getRandomSector = () => {
@@ -262,11 +251,12 @@ const sectorClicked = sectorClicked => {
        
     } else {
         //end game
-        alert('Sorry, but you did mistake');  
-        reductionScore()   
+        alert('Sorry, but you did mistake, Press STRAT button to try again!');  
+        reductionScore()  
+         
         sequence.push(getRandomSector());
     sequenceToGuess = [...sequence];
-    startFlashing();
+    
     }   
 };
 
