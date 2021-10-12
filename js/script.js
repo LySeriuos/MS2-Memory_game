@@ -20,7 +20,8 @@ $(document).ready(function(){
     $('.btn-start').click(function(){        
         setTimeout(function(){startFlashing()},1000); 
         closeModal(); 
-                  
+        
+          
        }); 
 
        $('.btnRules').click(function(){
@@ -81,8 +82,7 @@ arrPlayers = temp;
     function chosePlayer() {
         let chosePlayer = select.value; 
         testingUpdate.textContent = chosePlayer;
-        
-    };
+        };
 
     $('#modal_button').click(function(){
         if($('#exampleFormControlInput1').val() == ''){
@@ -92,10 +92,6 @@ arrPlayers = temp;
         }
      });
         
-    
-   
-
-
       // To use saved names in local storage for future game players name selection
 
       var select = document.getElementById("exampleFormControlSelect1"); 
@@ -117,11 +113,9 @@ arrPlayers = temp;
 
     // selected player is showing in the game as a current player.
     
-   // showing dificullty level in the game
-function dif() {
-    let difLevel = document.getElementById("exampleFormControlSelect2").value; 
-    difficulty.textContent = difLevel;
-};
+   
+    
+
 
    // counting scores of the game, one finished sequence one score
 function incrementScore(){
@@ -142,40 +136,32 @@ function incrementScore(){
     playerStats.push(playerInfo);
     // Re-serialize the array back into a string and store it in localStorage
     localStorage.setItem('session', JSON.stringify(playerStats));
-    console.log(playerStats);
+    
+    // Managing map. to get unique arrays of keys and values.
+
      let uniqueObjArray = [
          ...new Map(playerStats.map((item) => [item["name"], item])).values(),
      ];
 
      let test_uniqueObjArray_map = playerStats.map((item) => [
-         item["score"], item
-        ]);
-        
+         item["score"], item]);
+               
+     let test_uniqueObjArray_NewMap = new Map(test_uniqueObjArray_map);
 
-        let test_uniqueObjArray_NewMap = new Map(test_uniqueObjArray_map);
-
-        let test_uniqueObjArray_NewMap_keys = test_uniqueObjArray_NewMap.keys();
-
-        
-
-        let test_uniqueObjArray_NewMap_values = test_uniqueObjArray_NewMap.values();
-
-        
-
-        let test_uniqueObjArray_NewMap_values_asArray = [...test_uniqueObjArray_NewMap_values];
+     let test_uniqueObjArray_NewMap_keys = test_uniqueObjArray_NewMap.keys();
+      
+     let test_uniqueObjArray_NewMap_values = test_uniqueObjArray_NewMap.values();
        
-
-       
-
+     let test_uniqueObjArray_NewMap_values_asArray = [...test_uniqueObjArray_NewMap_values];
+             
         //Showing players with top three scores in the Leader Board.
 
-        let topThree = test_uniqueObjArray_NewMap_values_asArray.slice(Math.max(test_uniqueObjArray_NewMap_values_asArray.length - 3, 1))
+     let topThree = test_uniqueObjArray_NewMap_values_asArray.slice(Math.max(test_uniqueObjArray_NewMap_values_asArray.length - 3, 1))
         
-
-        let listTop = document.getElementById("topThree");
+     let listTop = document.getElementById("topThree");
         
-             listTop.innerHTML = topThree.map(topThree => {
-                   return `<li>${topThree.name}-${topThree.score}</li>`;
+           listTop.innerHTML = topThree.map(topThree => {
+           return `<li>${topThree.name}-${topThree.score}</li>`;
                })
                .reverse()
                .join("");
@@ -192,9 +178,7 @@ function incrementScore(){
 
        let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
        document.getElementById("highScore").textContent = highScores;
-       
-
-};
+       };
 
     function reductionScore(){
         let oldScore = parseInt(document.getElementById("score").innerText);
@@ -211,6 +195,34 @@ const bottomRight = document.querySelector('.top-right-sector');
 
 const sequences = [topLeft, bottomLeft, bottomRight, topRight];
 
+// showing dificullty level in the game and made cinditions for each level
+
+let x = 500;
+  let y = 1000;
+
+  function dif() {
+    let difLevel = document.getElementById("exampleFormControlSelect2").value;
+    difficulty.textContent = difLevel;
+    $("#exampleFormControlSelect2 option[value='yourValue']").length > 0;   
+    console.log(difLevel); 
+
+   if (difLevel === "Medium"){
+    clearTimeout()
+     x = 500;
+   y = 500;
+   alert("hahaha");
+} else if (difLevel === "Hard"){
+    clearTimeout()
+     x = 250;
+   y = 250;
+   alert("pavyko");
+   } else {
+    clearTimeout()
+    x = 500;
+    y = 1000; 
+   }
+
+};
 //getting length of the sector and picking a random index   
 const getRandomSector = () => {
    const sectors = [topLeft, bottomLeft, bottomRight, topRight]
@@ -225,11 +237,12 @@ return new Promise(resolve =>{
    sector.className += ' active';
    setTimeout(() => {
 sector.className = sector.className.replace(' active', '');
+
 //setting break time between double colour flashing
 setTimeout(() => {
     resolve();
-}, 250);
-}, 1000)
+}, x);
+}, y)
 });
 };
 
@@ -250,7 +263,10 @@ const sectorClicked = sectorClicked => {
     } else {
         //end game
         alert('Sorry, but you did mistake');  
-        reductionScore()     
+        reductionScore()   
+        sequence.push(getRandomSector());
+    sequenceToGuess = [...sequence];
+    startFlashing();
     }   
 };
 
