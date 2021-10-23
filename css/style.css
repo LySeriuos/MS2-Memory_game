@@ -10,7 +10,8 @@ body {
     background-color: #000000;
    max-width: 1200px;
    font-family: "Orbitron", sans-serif;
-   height: 100vh;
+   height: 100%;
+   overflow-y: scroll !important;
 }
 
 .my-col {
@@ -113,6 +114,10 @@ body {
 
     .mobile-template {
         width: 100%;
+    }
+
+    .modal { 
+        overflow: auto !important; 
     }
     
     .my-col-bottom-left {
