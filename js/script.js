@@ -58,6 +58,8 @@ $(document).ready(function(){
     });    
 });
 
+
+
 // Adding new player to an array and saving it to local.storage 
 
     let arrPlayers = localStorage.getItem("arrPlayers");
@@ -221,6 +223,8 @@ let x = 500;
     y = 1000; 
    }
 };
+
+
 //getting length of the sector and picking a random index   
 const getRandomSector = () => {
    const sectors = [topLeft, bottomLeft, bottomRight, topRight]
@@ -243,6 +247,8 @@ setTimeout(() => {
 }, y)
 });
 };
+
+
 
 let canClick = false;
 
