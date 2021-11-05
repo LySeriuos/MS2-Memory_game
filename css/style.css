@@ -55,6 +55,12 @@ body {
     font-weight: 400;
     text-align: center;
 }
+
+button {
+     /* Remove focus around button */
+    outline:none;  
+}
+
 /*Making a quadrant of 4 pieces (sectors) in different colours*/ 
 
 .sector {
@@ -85,23 +91,23 @@ body {
     border: 10px solid gold;    
 }
  /* Colours when hoovering over the element */
-.top-left-sector:hover {
-    background-color: rgba(255, 4, 4, 0.527);
+.top-left-sector:active {
+    background-color: rgba(255, 4, 4, 0.6);
 }
 
-.top-right-sector:hover {    
+.top-right-sector:active {    
     /* background-color: blue;*/
-     background-color:  rgba(0, 0, 255, 0.596);
+     background-color:  rgba(0, 0, 255, 0.6);
     }
  
- .bottom-left-sector:hover {   
+ .bottom-left-sector:active {   
      /*background-color: green;*/
-     background-color:  rgba(0, 128, 0, 0.582);        
+     background-color:  rgba(0, 128, 0, 0.6);        
  }
  
- .bottom-right-sector:hover {   
+ .bottom-right-sector:active {   
      /* background-color: gold;*/
-     background-color:  rgba(255, 217, 0, 0.678);    
+     background-color:  rgba(255, 217, 0, 0.6);    
  }
 
  /* "Active" or blinking sequnece color */
@@ -109,6 +115,17 @@ body {
  .active {
     background-color: rgba(255, 255, 255, 0.705);        
 }
+
+
+
+/**
+ * Remove focus styles for non-keyboard focus.
+ */
+ :focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+  }
+  
 
 
     /* Game template styling */
@@ -258,10 +275,11 @@ body {
            margin-right: 15px;
            margin-top: 15px;
        }    
-                    
+     
+     /* Media styles*/
 
-     /* Media styles*/               
-
+    
+     
     @media (max-width: 1199.98px) { 
                     #column-order-1 {
                         order: -1;
@@ -362,4 +380,10 @@ body {
         .row {
             flex-wrap: nowrap;
         }
+        }
+
+        @media (hover: none) {
+            .top-right-sector {
+                color: blue;
+            }
         }
