@@ -1,19 +1,30 @@
 // Adding modal after uploading page 
 $(document).ready(function(){
-  
-    function showModal(){
+    $('#modal-container').modal('toggle');
+
+    function showModal(){     
      $('#modal-container').show();
      $('html body').css('overflow', 'hidden');
     }
 
+    function showModal2(){
+        $('#modal-container-2').show();
+        $('html body').css('overflow', 'hidden');
+       }
+
+    function closeModal2(){
+        $('#modal-container-2').hide(); 
+
+    };
+
     function closeModal(){
-        $('#modal-container').hide();
+        $('#modal-container').hide();        
     };
 
     $(document).ready(function () {
 
         $('.modal').on("hidden.bs.modal", function (e) { //fire on closing modal box
-               if ($('.modal:visible').length) { // check whether parent modal is opend after child modal close
+               if ($('.modal2:visible').length) { // check whether parent modal is opend after child modal close
                    $('body').addClass('modal-open'); // if open mean length is 1 then add a bootstrap css class to body of the page
                }
            });
@@ -22,18 +33,27 @@ $(document).ready(function(){
 
     // Game will start and modal will close after pressing button "Start"  
 
-    $('#close').click(function(){
-        closeModal();
+    $('.close-btn-rules, #modal_button_rules').click(function(){
+        closeModal2();        
     });
-
+    $('.close-btn').click(function(){
+        closeModal();        
+    });
+    
+   
+    
     $('.btn-start').click(function(){        
         setTimeout(function(){startFlashing()},1000); 
-        closeModal(); 
-          
+        closeModal();          
+       }); 
+
+       $('.btn-close').click(function(){        
+        
+        closeModal();          
        }); 
 
     $('.btnRules').click(function(){
-        showModal();
+        showModal2();
     });
 
     $('.btnDiff').click(function(){
@@ -230,7 +250,6 @@ let selectDif = document.getElementById("exampleFormControlSelect2");
    }
 };
 dif();
-
 var audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
 
 

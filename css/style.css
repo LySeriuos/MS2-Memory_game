@@ -280,7 +280,8 @@ button {
                list-style: none;
            }
 
-       .close-btn {
+       .close-btn,
+       .close-btn-rules {
            background-color: transparent;
            font-size: 30px;           
            color: #06C502; 
