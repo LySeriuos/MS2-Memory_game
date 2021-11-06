@@ -100,7 +100,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect2"><a id="choose_player"></a>Choose a player:</label>
                             <select class="form-control" onchange="chosePlayer()" id="exampleFormControlSelect1" > 
-                                <option hidden disabled selected value>  </option>                                                          
+                                <option>Anonymus</option>                                                          
                               </select>
                           </div>
                         <div class="form-group name_form">
@@ -111,11 +111,10 @@
                         </div>
                         <div class="form-group level_form">
                           <label for="exampleFormControlSelect1">Level:</label>
-                          <select class="form-control" onchange="dif()" id="exampleFormControlSelect2">
-                            <option hidden disabled selected value></option> 
-                            <option>Easy</option>
-                            <option>Medium</option>
-                            <option>Hard</option>
+                          <select class="form-control"  id="exampleFormControlSelect2" onchange="dif()">
+                            <option selected = "selected" value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
                           </select>
                         </div>                        
                       </form>

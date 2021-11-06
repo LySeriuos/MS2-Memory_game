@@ -44,7 +44,7 @@ $(document).ready(function(){
         showModal();
     });
 
-    $('.btnChoossPlayer').click(function(){       
+    $('.btnChoosPlayer').click(function(){       
         showModal();
         
     });
@@ -103,6 +103,7 @@ arrPlayers = temp;
       // To use saved names in local storage for future game players name selection
 
       var select = document.getElementById("exampleFormControlSelect1"); 
+       
       var players = JSON.parse(localStorage.getItem("arrPlayers"));
       
         if (players != null) {
@@ -199,13 +200,18 @@ const sequences = [topLeft, bottomLeft, bottomRight, topRight];
 // showing dificullty level in the game and made conditions for each level
 
 let x = 500;
-  let y = 1000;
+let y = 1000;
+let difficulty = document.querySelector('#difficulty');
+let selectDif = document.getElementById("exampleFormControlSelect2"); 
+
+
+  
 
   function dif() {
-    let difLevel = document.getElementById("exampleFormControlSelect2").value;
+    let difLevel = selectDif.value;
     difficulty.textContent = difLevel;
     $("#exampleFormControlSelect2 option[value='yourValue']").length > 0;   
-    console.log(difLevel); 
+    
 
    if (difLevel === "Medium"){
     clearTimeout()
@@ -223,6 +229,10 @@ let x = 500;
     y = 1000; 
    }
 };
+dif();
+
+var audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
+
 
 
 //getting length of the sector and picking a random index   
@@ -250,13 +260,16 @@ setTimeout(() => {
 
 
 
+
 let canClick = false;
 
 const sectorClicked = sectorClicked => {
-    if(!canClick) return;
+    audio.play();
+    if(!canClick) return;    
     const expectedSector = sequenceToGuess.shift();
+    
     if (expectedSector === sectorClicked) {
-        if (sequenceToGuess.length === 0) {
+    if (sequenceToGuess.length === 0) {
     //start new round
     sequence.push(getRandomSector());
     sequenceToGuess = [...sequence];
