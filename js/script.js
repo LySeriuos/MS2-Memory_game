@@ -1,6 +1,6 @@
 // Adding modal after uploading page 
 $(document).ready(function(){
-    $('#modal-container').modal('toggle');
+    
 
     function showModal(){     
      $('#modal-container').show();
@@ -12,9 +12,17 @@ $(document).ready(function(){
         $('html body').css('overflow', 'hidden');
        }
 
-    function closeModal2(){
-        $('#modal-container-2').hide(); 
+    function showModal3(){
+        $('#modal-leaderboard').show();
+        $('html body').css('overflow', 'hidden');
+       }   
 
+    function closeModal2(){
+        $('#modal-container-2').hide();
+    };
+
+    function closeModal3(){
+        $('#modal-leaderboard').hide();
     };
 
     function closeModal(){
@@ -39,6 +47,10 @@ $(document).ready(function(){
     $('.close-btn').click(function(){
         closeModal();        
     });
+
+    $('.close-btn-leaderboard, #modal_button_leaderboard').click(function(){
+        closeModal3();        
+    });
     
    
     
@@ -48,7 +60,6 @@ $(document).ready(function(){
        }); 
 
        $('.btn-close').click(function(){        
-        
         closeModal();          
        }); 
 
@@ -58,6 +69,10 @@ $(document).ready(function(){
 
     $('.btnDiff').click(function(){
         showModal();
+    });
+
+    $('.modal_button_leaderboard').click(function(){
+        showModal3();
     });
 
     $('.btnCreate').click(function(){
@@ -187,6 +202,17 @@ function incrementScore(){
                })
                .reverse()
                .join("");
+
+     let topFifteen = test_uniqueObjArray_NewMap_values_asArray.slice(Math.max(test_uniqueObjArray_NewMap_values_asArray.length - 15, 1))
+        
+     let listTopFifteen = document.getElementById("topFifteen");
+                
+     listTopFifteen.innerHTML = topFifteen.map(topFifteen => {
+           return `<li>${topFifteen.name}-${topFifteen.score}</li>`;
+               })
+               .reverse()
+               .join("");          
+
 
         
         //showing the highest scores of current player
