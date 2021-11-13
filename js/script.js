@@ -71,7 +71,7 @@ $(document).ready(function(){
         showModal();
     });
 
-    $('.modal_button_leaderboard').click(function(){
+    $('.btnLeaderboard').click(function(){
         showModal3();
     });
 
@@ -173,6 +173,8 @@ function incrementScore(){
     playerStats.push(playerInfo);
     // Re-serialize the array back into a string and store it in localStorage
     localStorage.setItem('session', JSON.stringify(playerStats));
+
+    console.log(playerStats);
     
     // Managing map. to get unique arrays of keys and values.
 
@@ -180,9 +182,12 @@ function incrementScore(){
          ...new Map(playerStats.map((item) => [item["name"], item])).values(),
      ];
 
+     console.log(uniqueObjArray);
+
      let test_uniqueObjArray_map = playerStats.map((item) => [
          item["score"], item]);
-               
+
+                 
      let test_uniqueObjArray_NewMap = new Map(test_uniqueObjArray_map);
 
      let test_uniqueObjArray_NewMap_keys = test_uniqueObjArray_NewMap.keys();
@@ -194,7 +199,7 @@ function incrementScore(){
         //Showing players with top three scores in the Leader Board.
 
      let topThree = test_uniqueObjArray_NewMap_values_asArray.slice(Math.max(test_uniqueObjArray_NewMap_values_asArray.length - 3, 1))
-        
+      
      let listTop = document.getElementById("topThree");
         
            listTop.innerHTML = topThree.map(topThree => {
@@ -203,26 +208,44 @@ function incrementScore(){
                .reverse()
                .join("");
 
-     let topFifteen = test_uniqueObjArray_NewMap_values_asArray.slice(Math.max(test_uniqueObjArray_NewMap_values_asArray.length - 15, 1))
-        
-     let listTopFifteen = document.getElementById("topFifteen");
-                
-     listTopFifteen.innerHTML = topFifteen.map(topFifteen => {
-           return `<li>${topFifteen.name}-${topFifteen.score}</li>`;
-               })
-               .reverse()
-               .join("");          
-
-
-        
         //showing the highest scores of current player
 
         result = playerStats.reduce((a, {name, score}) => {
             if (name.includes(currrentPlayer)) a.push({name, score});
             return a;
           }, []);
+          console.log(result);
+
+
+        //showing top20 of players with the most scores
         
-        console.log(result);
+        let blaBla = playerStats.sort((firstItem, secondItem) => firstItem.score - secondItem.score);
+     let anotherCheck = blaBla.slice(Math.min(blaBla.length -20));
+     let gangster = anotherCheck.reverse();
+
+     let topFifteen = document.querySelector('#topFifteen');
+
+            
+     topFifteen.innerHTML = gangster.map(gangster => {
+           return `<li>${gangster.name} - ${gangster.score}</li>`;
+               })
+               .join("");
+
+               console.log(topFifteen);
+
+          
+
+          
+
+         
+          
+
+         
+   
+
+
+
+          
 
        let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
        document.getElementById("highScore").textContent = highScores;

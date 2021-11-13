@@ -213,7 +213,7 @@ button {
             padding: 0;
                     }
 
-    .col li {
+    .col ul>li {
             list-style: none;
             color: #06C502;
                     }
@@ -256,6 +256,11 @@ button {
        .modal-list li, ol{
            list-style:circle;
        }
+
+       #modal_button_leaderboard {
+        position:relative;
+        margin-bottom: 0;
+       }
        
        .form-control {
            background-color: black;
@@ -268,6 +273,10 @@ button {
 
        p {
         color: #06C502;   
+       }
+
+       #topFifteen {
+        list-style: numbers;
        }
        
        
