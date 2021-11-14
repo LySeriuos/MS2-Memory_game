@@ -20,7 +20,9 @@ $(document).ready(function(){
     //Closing modal and starting the game with startFlashing()
     $('.btn-start').click(function(){
         $('.modal-container').fadeOut('slow');
-        startFlashing();
+        setTimeout(() => {
+            startFlashing()
+          }, 1000);
      });
      // Clicking button Rules to open modal
      $('.btnLeaderboard').click(function(){
@@ -29,9 +31,15 @@ $(document).ready(function(){
      //Closing modal
     $('.close-btn-leaderboard, #modal_button_leaderboard').click(function(){
     $('.modal-leaderboard').fadeOut('slow');
-    });
+    });    
+    setTimeout(() => {
+        startFlashing()
+      }, 1000);
 });
-    
+function restart(){
+    document.location.href = "";
+    } 
+
 // Adding new player to an array and saving it to local.storage 
 
     let arrPlayers = localStorage.getItem("arrPlayers");
@@ -47,9 +55,8 @@ arrPlayers = temp;
     // The last provided player name is showing in the game as current player.
 
     function add() {            
-    $('.name_form input[type="text"]').each(function(){ arrPlayers.push($(this).val()); });
-    document.getElementById("exampleFormControlInput1").value = '';
-   
+    $('.name_form input[type="text"]').each(function(){arrPlayers.push($(this).val()); });
+    document.getElementById("exampleFormControlInput1").value = '';   
     localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));
     testingUpdate.textContent = arrPlayers[arrPlayers.length - 1];
         };
@@ -66,36 +73,32 @@ arrPlayers = temp;
 
     $('#modal_button').click(function(){
         if($('#exampleFormControlInput1').val() == ''){
-            chosePlayer();           
+            chosePlayer(); 
+            restart();          
         } else {
             add();
+            restart();
         }
      });
         
       // To use saved names in local storage for future game players name selection
 
-      var select = document.getElementById("exampleFormControlSelect1"); 
-       
-      var players = JSON.parse(localStorage.getItem("arrPlayers"));
-      
+      var select = document.getElementById("exampleFormControlSelect1");        
+      var players = JSON.parse(localStorage.getItem("arrPlayers"));      
         if (players != null) {
-      for(var i = 0; i < players.length; i++) {
-        
-    
-    var opt = players[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-    $("#exampleFormControlSelect1 option[value='yourValue']").length > 0; // I'm using 1 for not showing up empty list options when choosing player.
-    
+      for(var i = 0; i < players.length; i++) {    
+        var opt = players[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el);
+        $("#exampleFormControlSelect1 option[value='yourValue']").length > 0;     
       }};
     
    // counting scores of the game, one finished sequence one score
-function incrementScore(){
+    function incrementScore(){
     let oldScore = parseInt(document.getElementById("score").innerText);
-    document.getElementById("score").innerText = ++oldScore;
-    
+    document.getElementById("score").innerText = ++oldScore; 
     
     let currrentPlayer = document.querySelector('#testingUpdate').textContent;
     console.log(currrentPlayer);   
@@ -113,27 +116,20 @@ function incrementScore(){
 
     console.log(playerStats);
     
-    // Managing map. to get unique arrays of keys and values.
+     // Managing map. to get unique arrays of keys and values.
 
      let uniqueObjArray = [
          ...new Map(playerStats.map((item) => [item["name"], item])).values(),
      ];
 
-     console.log(uniqueObjArray);
-
      let test_uniqueObjArray_map = playerStats.map((item) => [
-         item["score"], item]);
-
-                 
+         item["score"], item]);           
      let test_uniqueObjArray_NewMap = new Map(test_uniqueObjArray_map);
-
-     let test_uniqueObjArray_NewMap_keys = test_uniqueObjArray_NewMap.keys();
-      
-     let test_uniqueObjArray_NewMap_values = test_uniqueObjArray_NewMap.values();
-       
+     let test_uniqueObjArray_NewMap_keys = test_uniqueObjArray_NewMap.keys();      
+     let test_uniqueObjArray_NewMap_values = test_uniqueObjArray_NewMap.values();       
      let test_uniqueObjArray_NewMap_values_asArray = [...test_uniqueObjArray_NewMap_values];
              
-        //Showing players with top three scores in the Leader Board.
+     //Showing players with top three scores in the Leader Board.
 
      let topThree = test_uniqueObjArray_NewMap_values_asArray.slice(Math.max(test_uniqueObjArray_NewMap_values_asArray.length - 3, 1))
       
@@ -145,32 +141,25 @@ function incrementScore(){
                .reverse()
                .join("");
 
-        //showing the highest scores of current player
+     //showing the highest scores of current player
 
-        result = playerStats.reduce((a, {name, score}) => {
-            if (name.includes(currrentPlayer)) a.push({name, score});
-            return a;
+     result = playerStats.reduce((a, {name, score}) => {
+        if (name.includes(currrentPlayer)) a.push({name, score});
+        return a;
           }, []);
-          console.log(result);
-
-
-        //showing top20 of players with the most scores
+          
+     //showing top20 of players with the most scores
         
-        let blaBla = playerStats.sort((firstItem, secondItem) => firstItem.score - secondItem.score);
+     let blaBla = playerStats.sort((firstItem, secondItem) => firstItem.score - secondItem.score);
      let anotherCheck = blaBla.slice(Math.min(blaBla.length -20));
      let gangster = anotherCheck.reverse();
-
-     let topFifteen = document.querySelector('#topFifteen');
-
-            
+     let topFifteen = document.querySelector('#topFifteen');            
      topFifteen.innerHTML = gangster.map(gangster => {
            return `<li>${gangster.name} - ${gangster.score}</li>`;
                })
                .join("");
 
-               console.log(topFifteen);
-
-               let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
+     let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
        document.getElementById("highScore").textContent = highScores;
        };
 
@@ -196,14 +185,10 @@ let y = 1000;
 let difficulty = document.querySelector('#difficulty');
 let selectDif = document.getElementById("exampleFormControlSelect2"); 
 
-
-  
-
-  function dif() {
+function dif() {
     let difLevel = selectDif.value;
     difficulty.textContent = difLevel;
-    $("#exampleFormControlSelect2 option[value='yourValue']").length > 0;   
-    
+    $("#exampleFormControlSelect2 option[value='yourValue']").length > 0;    
 
    if (difLevel === "Medium"){
     clearTimeout()
@@ -249,36 +234,36 @@ setTimeout(() => {
 });
 };
 
-
-
-
 let canClick = false;
 
 const sectorClicked = sectorClicked => {
     audio.play();
     if(!canClick) return;    
-    const expectedSector = sequenceToGuess.shift();
-    
+    const expectedSector = sequenceToGuess.shift();    
     if (expectedSector === sectorClicked) {
     if (sequenceToGuess.length === 0) {
     //start new round
     sequence.push(getRandomSector());
     sequenceToGuess = [...sequence];
-    startFlashing();
-    incrementScore()
+    setTimeout(() => {
+        startFlashing()
+      }, 1000);
+    
+    incrementScore();
         }
        
     } else {
         //end game
         alert('Sorry, but you did mistake, Press STRAT button to try again!');  
-        reductionScore()  
-         
+        reductionScore();           
         sequence.push(getRandomSector());
-    sequenceToGuess = [...sequence];
-    
+        sequenceToGuess = [...sequence];
+        setTimeout(() => {
+            startFlashing()
+          }, 1000);
+        
     }   
 };
-
 
 const startFlashing = async () => {
     canClick = false;
@@ -287,4 +272,4 @@ const startFlashing = async () => {
     }
     canClick = true;
 }
-  startFlashing();
+  
