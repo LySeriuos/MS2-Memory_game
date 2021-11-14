@@ -235,7 +235,7 @@ button {
            border-radius: 5px;
            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
            position: absolute;
-           overflow: auto;
+           
            top: 50%;
            left: 50%;
            transform: translate(-50%, -50%);
@@ -251,6 +251,7 @@ button {
            flex-direction: column;
            background-color: black;   
            text-align: center;
+           align-items: center;
        }
        
        .modal-list li, ol{
@@ -261,6 +262,12 @@ button {
         position:relative;
         margin-bottom: 0;
        }
+
+       #modal-leaderboard ul{
+        width: max-content;
+       }
+
+      
        
        .form-control {
            background-color: black;

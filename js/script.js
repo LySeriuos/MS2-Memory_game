@@ -1,100 +1,37 @@
 // Adding modal after uploading page 
 $(document).ready(function(){
     
-
-    function showModal(){     
-     $('#modal-container').show();
-     $('html body').css('overflow', 'hidden');
-    }
-
-    function showModal2(){
-        $('#modal-container-2').show();
-        $('html body').css('overflow', 'hidden');
-       }
-
-    function showModal3(){
-        $('#modal-leaderboard').show();
-        $('html body').css('overflow', 'hidden');
-       }   
-
-    function closeModal2(){
-        $('#modal-container-2').hide();
-    };
-
-    function closeModal3(){
-        $('#modal-leaderboard').hide();
-    };
-
-    function closeModal(){
-        $('#modal-container').hide();        
-    };
-
-    $(document).ready(function () {
-
-        $('.modal').on("hidden.bs.modal", function (e) { //fire on closing modal box
-               if ($('.modal2:visible').length) { // check whether parent modal is opend after child modal close
-                   $('body').addClass('modal-open'); // if open mean length is 1 then add a bootstrap css class to body of the page
-               }
-           });
-       });
-   
-
-    // Game will start and modal will close after pressing button "Start"  
-
-    $('.close-btn-rules, #modal_button_rules').click(function(){
-        closeModal2();        
+   // Clicking button Rules to open modal
+     $('.btnRules').click(function(){
+         $('.modal-container-2').fadeIn('slow');
+     });
+     //Closing modal
+     $('.close-btn-rules, #modal_button_rules').click(function(){
+        $('.modal-container-2').fadeOut('slow');
     });
+    // Clicking button Choose Player to open modal
+    $('.btnChoossPlayer, .btnDiff, .btnCreate').click(function(){
+        $('.modal-container').fadeIn('slow');
+    });
+    //Closing modal
     $('.close-btn').click(function(){
-        closeModal();        
+       $('.modal-container').fadeOut('slow');
     });
-
-    $('.close-btn-leaderboard, #modal_button_leaderboard').click(function(){
-        closeModal3();        
-    });
-    
-   
-    
-    $('.btn-start').click(function(){        
-        setTimeout(function(){startFlashing()},1000); 
-        closeModal();          
-       }); 
-
-       $('.btn-close').click(function(){        
-        closeModal();          
-       }); 
-
-    $('.btnRules').click(function(){
-        showModal2();
-    });
-
-    $('.btnDiff').click(function(){
-        showModal();
-    });
-
-    $('.btnLeaderboard').click(function(){
-        showModal3();
-    });
-
-    $('.btnCreate').click(function(){
-        showModal();
-    });
-
-    $('.btnChoosPlayer').click(function(){       
-        showModal();
-        
-    });
-
-    $("#btnRules").on("click", function() {
-        $("#modal").show();
-    });
-
-    $(".btn-start-game").on("click", function() {
+    //Closing modal and starting the game with startFlashing()
+    $('.btn-start').click(function(){
+        $('.modal-container').fadeOut('slow');
         startFlashing();
-    });    
+     });
+     // Clicking button Rules to open modal
+     $('.btnLeaderboard').click(function(){
+    $('.modal-leaderboard').fadeIn('slow');
+    });
+     //Closing modal
+    $('.close-btn-leaderboard, #modal_button_leaderboard').click(function(){
+    $('.modal-leaderboard').fadeOut('slow');
+    });
 });
-
-
-
+    
 // Adding new player to an array and saving it to local.storage 
 
     let arrPlayers = localStorage.getItem("arrPlayers");
@@ -233,21 +170,7 @@ function incrementScore(){
 
                console.log(topFifteen);
 
-          
-
-          
-
-         
-          
-
-         
-   
-
-
-
-          
-
-       let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
+               let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
        document.getElementById("highScore").textContent = highScores;
        };
 
