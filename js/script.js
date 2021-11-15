@@ -35,10 +35,24 @@ $(document).ready(function(){
     setTimeout(() => {
         startFlashing()
       }, 1000);
+
+      function alertFail(){
+      $("#failure").click(function () {
+        $(".notify").addClass("active");
+        $("#notifyType").addClass("failure");
+        
+        setTimeout(function(){
+          $(".notify").removeClass("active");
+          $("#notifyType").removeClass("failure");
+        },2000);
+      });
+    }
 });
-function restart(){
+    function restart(){
     document.location.href = "";
-    } 
+    };
+
+   
 
 // Adding new player to an array and saving it to local.storage 
 
@@ -208,6 +222,7 @@ function dif() {
 };
 dif();
 var audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
+var anotherAudio = new Audio("assets/sounds/soundscrate-electronic-kick-2.mp3")
 
 
 
@@ -237,7 +252,7 @@ setTimeout(() => {
 let canClick = false;
 
 const sectorClicked = sectorClicked => {
-    audio.play();
+    
     if(!canClick) return;    
     const expectedSector = sequenceToGuess.shift();    
     if (expectedSector === sectorClicked) {
@@ -254,13 +269,13 @@ const sectorClicked = sectorClicked => {
        
     } else {
         //end game
-        alert('Sorry, but you did mistake, Press STRAT button to try again!');  
+        anotherAudio.play();
         reductionScore();           
         sequence.push(getRandomSector());
         sequenceToGuess = [...sequence];
         setTimeout(() => {
             startFlashing()
-          }, 1000);
+          }, 1500);
         
     }   
 };
