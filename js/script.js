@@ -91,7 +91,7 @@ arrPlayers = temp;
             restart();          
         } else {
             add();
-            restart();
+            restart(); // the restart() function does not alloud to change palyer name or add new, because of restarting page and it is always going to be anonymus!!!!!!
         }
      });
         
@@ -221,9 +221,35 @@ function dif() {
    }
 };
 dif();
-var audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
-var anotherAudio = new Audio("assets/sounds/soundscrate-electronic-kick-2.mp3")
 
+// audio for the game. With these function able to manipulate sounds evenwith longer one
+let audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
+let anotherAudio = new Audio("assets/sounds/1-note-high-pizz.mp3")
+let failAudio = new Audio("assets/sounds/soundscrate-audience-impressed-ahhh-1.mp3")
+let correctAudio = new Audio("assets/sounds/soundscrate-audience-cheers-variation-5.mp3")
+let flashAudio = new Audio("assets/sounds/1-note-high-pizz.mp3")
+
+function audioClick(){	
+	anotherAudio.currentTime=0;
+	anotherAudio.play()
+	console.log(anotherAudio.currentTime);
+	setInterval(function(){
+		if(anotherAudio.currentTime>1){
+			anotherAudio.pause();
+				}
+			});
+		};
+
+function audioFlash(){	
+        flashAudio.currentTime=0.5;
+        flashAudio.play();
+            console.log(flashAudio.currentTime);
+            setInterval(function(){
+                if(flashAudio.currentTime>1.5){
+                    flashAudio.pause();
+                        }
+                    },100);
+                };        
 
 
 //getting length of the sector and picking a random index   
@@ -236,7 +262,8 @@ let sequenceToGuess = [...sequence]
 
 //flashing random colour from array sequences
 const flash = (sector) => {
-return new Promise(resolve =>{
+return new Promise(resolve =>{    
+   audioFlash()
    sector.className += ' active';
    setTimeout(() => {
 sector.className = sector.className.replace(' active', '');
@@ -252,12 +279,13 @@ setTimeout(() => {
 let canClick = false;
 
 const sectorClicked = sectorClicked => {
-    
-    if(!canClick) return;    
+    if(!canClick) return;
+    audioClick();    
     const expectedSector = sequenceToGuess.shift();    
     if (expectedSector === sectorClicked) {
     if (sequenceToGuess.length === 0) {
     //start new round
+    correctAudio.play();
     sequence.push(getRandomSector());
     sequenceToGuess = [...sequence];
     setTimeout(() => {
@@ -269,14 +297,13 @@ const sectorClicked = sectorClicked => {
        
     } else {
         //end game
-        anotherAudio.play();
-        reductionScore();           
-        sequence.push(getRandomSector());
+       failAudio.play();
+        reductionScore();       
         sequenceToGuess = [...sequence];
         setTimeout(() => {
             startFlashing()
           }, 1500);
-        
+          canClick = false; // this is to prevent double click after sequence were flashed.        
     }   
 };
 
