@@ -48,9 +48,7 @@ $(document).ready(function(){
       });
     }
 });
-    function restart(){
-    document.location.href = "";
-    };
+    
 
    
 
@@ -73,6 +71,7 @@ arrPlayers = temp;
     document.getElementById("exampleFormControlInput1").value = '';   
     localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));
     testingUpdate.textContent = arrPlayers[arrPlayers.length - 1];
+    jQuery('span').text('0') //put default value on change, player on change gets 0 scores.
         };
 
  // selected player is showing in the game as a current player.   
@@ -83,15 +82,16 @@ arrPlayers = temp;
     function chosePlayer() {
         let chosePlayer = select.value; 
         testingUpdate.textContent = chosePlayer;
+        jQuery('span').text('0'); //put default value on change, player on change gets 0 scores.
         };
 
     $('#modal_button').click(function(){
         if($('#exampleFormControlInput1').val() == ''){
             chosePlayer(); 
-            restart();          
+                      
         } else {
             add();
-            restart(); // the restart() function does not alloud to change palyer name or add new, because of restarting page and it is always going to be anonymus!!!!!!
+             // the restart() function does not alloud to change palyer name or add new, because of restarting page and it is always going to be anonymus!!!!!!
         }
      });
         
@@ -227,7 +227,7 @@ let audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
 let anotherAudio = new Audio("assets/sounds/1-note-high-pizz.mp3")
 let failAudio = new Audio("assets/sounds/soundscrate-audience-impressed-ahhh-1.mp3")
 let correctAudio = new Audio("assets/sounds/soundscrate-audience-cheers-variation-5.mp3")
-let flashAudio = new Audio("assets/sounds/1-note-high-pizz.mp3")
+let flashAudio = new Audio("assets/sounds/piano040.wav")
 
 function audioClick(){	
 	anotherAudio.currentTime=0;
