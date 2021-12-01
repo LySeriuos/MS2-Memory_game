@@ -21,8 +21,6 @@
     
     <header class="header-style">
         <p>Memory Game</p>
-        <button id="mute" class="unmuted" onclick="enableMute(), disableMute()" type="button"></button>
-
     </header>
     
         
@@ -32,7 +30,7 @@
     <div class="row row-1">
     <div class="col-3 align-text-center" id="column-order-2">
         <div class="col mobile-template mobile-template-bottom">
-        <ul>   
+        <ul class="hide-on-mobile">   
         <h4>Leader Board:</h4>        
         <ul id="topThree"></ul>
         </ul> 
@@ -41,6 +39,10 @@
         <h4>Player:</h4>
         <h4 id="testingUpdate">Anonymus</h4>
         </ul>
+        <ul>
+        <h5>Mute/Unmute:</h5>
+        <h3><button id="mute" class="unmuted" onclick="enableMute(), disableMute()" type="button"></button></h3>
+    </ul>
     </div>
     </div>
       
