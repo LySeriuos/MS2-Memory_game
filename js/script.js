@@ -82,7 +82,8 @@ arrPlayers = temp;
     function chosePlayer() {
         let chosePlayer = select.value; 
         testingUpdate.textContent = chosePlayer;
-        jQuery('span').text('0'); //put default value on change, player on change gets 0 scores.
+        jQuery('span').text('0'); //put default value on change, player on change gets 0 scores.   
+        
         };
 
     $('#modal_button').click(function(){
@@ -128,32 +129,18 @@ arrPlayers = temp;
     // Re-serialize the array back into a string and store it in localStorage
     localStorage.setItem('session', JSON.stringify(playerStats));
 
-    console.log(playerStats);
-    
-     // Managing map. to get unique arrays of keys and values.
+    console.log(playerStats);    
+               
+     //Showing players with top three scores in the Leader Board.    
 
-     let uniqueObjArray = [
-         ...new Map(playerStats.map((item) => [item["name"], item])).values(),
-     ];
-
-     let test_uniqueObjArray_map = playerStats.map((item) => [
-         item["score"], item]);           
-     let test_uniqueObjArray_NewMap = new Map(test_uniqueObjArray_map);
-     let test_uniqueObjArray_NewMap_keys = test_uniqueObjArray_NewMap.keys();      
-     let test_uniqueObjArray_NewMap_values = test_uniqueObjArray_NewMap.values();       
-     let test_uniqueObjArray_NewMap_values_asArray = [...test_uniqueObjArray_NewMap_values];
-             
-     //Showing players with top three scores in the Leader Board.
-
-     let topThree = test_uniqueObjArray_NewMap_values_asArray.slice(Math.max(test_uniqueObjArray_NewMap_values_asArray.length - 3, 1))
-      
-     let listTop = document.getElementById("topThree");
-        
-           listTop.innerHTML = topThree.map(topThree => {
-           return `<li>${topThree.name}-${topThree.score}</li>`;
-               })
-               .reverse()
-               .join("");
+               let lastThree = playerStats.sort((firstItem, secondItem) => firstItem.score - secondItem.score);
+               let lastThreeList = lastThree.slice(Math.min(lastThree.length -3));
+               let lastThreeReversed = lastThreeList.reverse();
+               let listTop = document.getElementById("topThree");           
+               listTop.innerHTML = lastThreeReversed.map(lastThreeReversed => {
+                     return `<li>${lastThreeReversed.name} - ${lastThreeReversed.score}</li>`;
+                         })
+                         .join("");          
 
      //showing the highest scores of current player
 
@@ -229,6 +216,64 @@ let failAudio = new Audio("assets/sounds/soundscrate-audience-impressed-ahhh-1.m
 let correctAudio = new Audio("assets/sounds/soundscrate-audience-cheers-variation-5.mp3")
 let flashAudio = new Audio("assets/sounds/piano040.wav")
 
+function muteAudio(){
+    if (audio.mute == false) 
+{
+    audio.muted = true;
+    anotherAudio.muted = true;
+    failAudio.muted = true;
+    correctAudio.muted = true;
+    flashAudio.muted = true;
+}
+else 
+{
+    audio.mute = true;
+      document.getElementById('audioPlayer').muted = false;
+      audio.muted = false;
+    anotherAudio.muted = false;
+    failAudio.muted = false;
+    correctAudio.muted = false;
+    flashAudio.muted = false;
+}
+};
+
+let button = document.getElementById('mute');
+    button.onclick = function (){
+
+        if (audio.muted === false) {    
+            enableMute();
+            $('#mute').addClass('muted');
+            
+     }
+     else {
+        disableMute();
+        
+        $('#mute').addClass('unmuted');
+            if ( $('#mute').hasClass('muted') )
+            $('#mute').removeClass('muted').addClass('unmuted');
+    }
+
+
+    };
+
+function enableMute() {    
+    audio.muted = true;
+    anotherAudio.muted = true;
+    failAudio.muted = true;
+    correctAudio.muted = true;
+    flashAudio.muted = true;
+    
+};
+
+function disableMute() { 
+
+    audio.muted = false;
+    anotherAudio.muted = false;
+    failAudio.muted = false;
+    correctAudio.muted = false;
+    flashAudio.muted = false;
+};
+
 function audioClick(){	
 	anotherAudio.currentTime=0;
 	anotherAudio.play()
@@ -251,12 +296,13 @@ function audioFlash(){
                     },100);
                 };        
 
-
+// need to reset sectors when player is onchange.
 //getting length of the sector and picking a random index   
-const getRandomSector = () => {
-   const sectors = [topLeft, bottomLeft, bottomRight, topRight]
-   return sectors[parseInt(Math.random()* sectors.length)];
+let getRandomSector = () => {
+   let sectors = [topLeft, bottomLeft, bottomRight, topRight]
+   return sectors[parseInt(Math.random()* sectors.length)];  
 }
+  
 const sequence =  [getRandomSector()];
 let sequenceToGuess = [...sequence]
 
@@ -267,6 +313,7 @@ return new Promise(resolve =>{
    sector.className += ' active';
    setTimeout(() => {
 sector.className = sector.className.replace(' active', '');
+//send a message for problem solution............................
 
 //setting break time between double colour flashing
 setTimeout(() => {
@@ -294,6 +341,7 @@ const sectorClicked = sectorClicked => {
     
     incrementScore();
         }
+        
        
     } else {
         //end game
@@ -314,4 +362,4 @@ const startFlashing = async () => {
     }
     canClick = true;
 }
-  
+ 

@@ -72,10 +72,35 @@ button {
   background-color: currentColor;
  } 
 
+.unmuted::before {
+    font-family: "Font Awesome 5 Free"; 
+	font-weight: 900;
+	content: "\f028";
+    color: #06C502;
+    background-color: black;    
+    }
 
+.unmuted,
+.muted {
+        background-color: black;
+        outline-style: none;
+        border-style: none;
+    }
+    
+.muted:hover,
+ .unmuted:hover{
+    transform: translateY(-10px);
+  }
 
-  
-.top-left-sector {    
+ .muted::before {
+    font-family: "Font Awesome 5 Free"; 
+	font-weight: 900;
+	content: "\f6a9";
+    color: #06C502;
+    background-color: black;    
+    }
+
+  .top-left-sector {    
     background-color: rgba(255, 4, 4, 0.6);
     border: 10px solid red;    
 }
