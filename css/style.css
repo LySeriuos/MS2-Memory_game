@@ -85,12 +85,10 @@ button {
         background-color: black;
         outline-style: none;
         border-style: none;
+        cursor: pointer;
     }
     
-.muted:hover,
- .unmuted:hover{
-    transform: translateY(-10px);
-  }
+
 
  .muted::before {
     font-family: "Font Awesome 5 Free"; 
@@ -230,9 +228,11 @@ button {
                     }
 
     .col ul>li {
-            list-style: none;
-            color: #06C502;
-                    }
+         list-style: none;
+         color: #06C502;
+         font-size: 1.2rem;
+         font-weight: 500;
+        }
 
                     /* Modal styling */
 
@@ -250,8 +250,7 @@ button {
            background-color: black;           
            border-radius: 5px;
            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-           position: absolute;
-           
+           position: absolute;           
            top: 50%;
            left: 50%;
            transform: translate(-50%, -50%);
@@ -278,6 +277,12 @@ button {
         position:relative;
         margin-bottom: 0;
        }
+
+       .form-group option{
+           font-size: 1,5rem;
+       }
+
+      
 
        #modal-leaderboard ul{
         width: max-content;
@@ -311,7 +316,8 @@ button {
            }
 
        .close-btn,
-       .close-btn-rules {
+       .close-btn-rules,
+       .close-btn-leaderboard {
            background-color: transparent;
            font-size: 30px;           
            color: #06C502; 
@@ -320,60 +326,7 @@ button {
            margin-right: 15px;
            margin-top: 15px;
        }   
-       /* testing animated alert */
-
-       .swal-title {
-        color: #06C502;
-        font-family: "Orbitron", sans-serif;
-        background-color: black;
-        font-weight: 400;
-        text-transform: none;
-        position: relative;
-        display: block;
-        padding: 13px 16px;
-        font-size: 27px;
-        line-height: normal;
-        text-align: center;
-        margin-bottom: 0;
-    }
-
-    .swal-button-container {
-            display: none;        
-    }
-
-    .swal-overlay--show-modal .swal-modal {
-        opacity: 1;
-        pointer-events: auto;
-        box-sizing: border-box;
-        -webkit-animation: showSweetAlert .3s;
-        animation: showSweetAlert .3s;
-        will-change: transform;
-    }
-    
-    .swal-modal {
-        width: 478px;
-        opacity: 0;
-        pointer-events: none;
-        background-color: black;
-        text-align: center;
-        border-radius: 5px;
-        position: static;
-        margin: 20px auto;
-        display: inline-block;
-        vertical-align: middle;
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        -webkit-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        z-index: 10001;
-        transition: opacity .2s,-webkit-transform .3s;
-        transition: transform .3s,opacity .2s;
-        transition: transform .3s,opacity .2s,-webkit-transform .3s;
-    }
- 
-
-
-
+          
      /* Media styles*/
 
     
@@ -401,6 +354,11 @@ button {
                         text-align: center;
                         justify-content: space-evenly;
                         max-width: 600px;
+                }
+                .muted:active,
+                .unmuted:active{
+                    transform: scale(1.5);
+                    transition: all .2s ease-in-out;
                 }
                 .col-3 {
                     -ms-flex: 0 0 100%;
@@ -435,6 +393,9 @@ button {
         }
         .hide-on-mobile {
             display: none;
+        }
+        .header-style{
+            font-size: 56px;
         }     
            }
           
@@ -476,15 +437,30 @@ button {
 
     @media (min-width: 1199.99px) { 
         .col {
-            width: 50%;
+            width: 70%;
         }
         .row {
             flex-wrap: nowrap;
         }
+        .muted:hover,
+        .unmuted:hover {
+           transform: scale(1.5);
+           transition: all .2s ease-in-out;
+         }
         }
-
-        @media (hover: none) {
-            .top-right-sector {
-                color: blue;
+    @media (hover: hover) {
+            .mute:hover,
+            .unmute:hover {
+                -webkit-transform: none;
+                -moz-transform: none;
+                -ms-transform: none;
+                transform: none;
             }
-        }
+            }    
+
+    
+
+         
+        
+
+        

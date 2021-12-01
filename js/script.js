@@ -34,20 +34,14 @@ $(document).ready(function(){
     });    
     setTimeout(() => {
         startFlashing()
-      }, 1000);
-
-      function alertFail(){
-      $("#failure").click(function () {
-        $(".notify").addClass("active");
-        $("#notifyType").addClass("failure");
-        
+      }, 1000);        
         setTimeout(function(){
           $(".notify").removeClass("active");
           $("#notifyType").removeClass("failure");
         },2000);
       });
-    }
-});
+    
+
     
 
    
@@ -159,6 +153,8 @@ arrPlayers = temp;
            return `<li>${gangster.name} - ${gangster.score}</li>`;
                })
                .join("");
+
+      console.log(gangster)
 
      let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
        document.getElementById("highScore").textContent = highScores;
