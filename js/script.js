@@ -1,39 +1,35 @@
 // Adding modal after uploading page 
 $(document).ready(function(){
     
-   // Clicking button Rules to open modal
+// Clicking button Rules to open modal
      $('.btnRules').click(function(){
          $('.modal-container-2').fadeIn('slow');
      });
-     //Closing modal
+//Closing modal
      $('.close-btn-rules, #modal_button_rules').click(function(){
         $('.modal-container-2').fadeOut('slow');
     });
-    // Clicking button Choose Player to open modal
+// Clicking button Choose Player to open modal
     $('.btnChoossPlayer, .btnDiff, .btnCreate').click(function(){
-        $('.modal-container').fadeIn('slow');
-          
-        
+        $('.modal-container').fadeIn('slow');        
     });
-    //Closing modal
+//Closing modal
     $('.close-btn').click(function(){
        $('.modal-container').fadeOut('slow');
     });
-    //Closing modal and starting the game with startFlashing()
+//Closing modal and starting the game with startFlashing()
     $('.btn-start').click(function(){
         $('.modal-container').fadeOut('slow');
         window.location.reload(); 
         setTimeout(() => {            
-            startFlashing(); 
-         
-
+            startFlashing();
           }, 1000);
      });
-     // Clicking button Rules to open modal
+// Clicking button Rules to open modal
      $('.btnLeaderboard').click(function(){
     $('.modal-leaderboard').fadeIn('slow');
     });
-     //Closing modal
+//Closing modal
     $('.close-btn-leaderboard, #modal_button_leaderboard').click(function(){
     $('.modal-leaderboard').fadeOut('slow');
     });    
@@ -47,34 +43,15 @@ $(document).ready(function(){
       });
 
       // audio for the game. With these function able to manipulate sounds evenwith longer one
-let audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
-let anotherAudio = new Audio("assets/sounds/1-note-high-pizz.mp3")
-let failAudio = new Audio("assets/sounds/soundscrate-audience-impressed-ahhh-1.mp3")
-let correctAudio = new Audio("assets/sounds/soundscrate-audience-cheers-variation-5.mp3")
-let flashAudio = new Audio("assets/sounds/piano040.wav")
+    let audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
+    let anotherAudio = new Audio("assets/sounds/1-note-high-pizz.mp3")
+    let failAudio = new Audio("assets/sounds/soundscrate-audience-impressed-ahhh-1.mp3")
+    let correctAudio = new Audio("assets/sounds/soundscrate-audience-cheers-variation-5.mp3")
+    let flashAudio = new Audio("assets/sounds/piano040.wav")
 
-function muteAudio(){
-    if (audio.mute == false) 
-{
-    audio.muted = true;
-    anotherAudio.muted = true;
-    failAudio.muted = true;
-    correctAudio.muted = true;
-    flashAudio.muted = true;
-}
-else 
-{
-    audio.mute = true;
-      document.getElementById('audioPlayer').muted = false;
-      audio.muted = false;
-    anotherAudio.muted = false;
-    failAudio.muted = false;
-    correctAudio.muted = false;
-    flashAudio.muted = false;
-}
-};
 
-let button = document.getElementById('mute');
+
+    let button = document.getElementById('mute');
     button.onclick = function (){
 
         if (audio.muted === false) {    
@@ -87,22 +64,17 @@ let button = document.getElementById('mute');
         $('#mute').addClass('unmuted');
             if ( $('#mute').hasClass('muted') )
             $('#mute').removeClass('muted').addClass('unmuted');
-    }
-
-
-    };
+    }};
 
 function enableMute() {    
     audio.muted = true;
     anotherAudio.muted = true;
     failAudio.muted = true;
     correctAudio.muted = true;
-    flashAudio.muted = true;
-    
+    flashAudio.muted = true;    
 };
 
 function disableMute() { 
-
     audio.muted = false;
     anotherAudio.muted = false;
     failAudio.muted = false;
@@ -138,49 +110,37 @@ function audioFlash(){
     arrPlayers = (arrPlayers) ? JSON.parse(arrPlayers) : [];
     temp = [];
 
-for(let i of arrPlayers)
-    i && temp.push(i); // copy each non-empty value to the 'temp' array
+    for(let i of arrPlayers)
+        i && temp.push(i); // copy each non-empty value to the 'temp' array
+    arrPlayers = temp;
 
-arrPlayers = temp;
-    console.log(arrPlayers);
-    
-    // The last provided player name is showing in the game as current player.
-
-    // the added player is showing directly in the choose player list, need to fix problem
-    //need to check if player name already exists
-    function add() {            
+// the added player is showing directly in the choose player list, need to fix problem
+//need to check if player name already exists
+function add() {            
     $('.name_form input[type="text"]').each(function(){arrPlayers.push($(this).val()); });
     document.getElementById("exampleFormControlInput1").value = '';   
     localStorage.setItem("arrPlayers", JSON.stringify(arrPlayers));
     testingUpdate.textContent = arrPlayers[arrPlayers.length - 1];
-    //jQuery('span').text('0') //put default value on change, player on change gets 0 scores.
-    
-        };
+    };
 
- // selected player is showing in the game as a current player.   
+// selected player is showing in the game as a current player.   
  
-    let modalButton = document.querySelector('#modal_button');
-    let testingUpdate = document.querySelector('#testingUpdate');
+        let modalButton = document.querySelector('#modal_button');
+        let testingUpdate = document.querySelector('#testingUpdate');
 
-    function chosePlayer() {
+function chosePlayer() {
         let chosePlayer = select.value;         
-        testingUpdate.textContent = chosePlayer;
-        
-        //jQuery('span').text('0'); //put default value on change, player on change gets 0 scores.   
-        
+        testingUpdate.textContent = chosePlayer;       
         };
 
-    $('#modal_button').click(function(){
+$('#modal_button').click(function(){
         if($('#exampleFormControlInput1').val() == ''){
-            chosePlayer(); 
-                      
+            chosePlayer();                      
         } else {
             add();
-             // the restart() function does not alloud to change palyer name or add new, because of restarting page and it is always going to be anonymus!!!!!!
-        }
-     });
+        }});
         
-      // To use saved names in local storage for future game players name selection
+// To use saved names in local storage for future game players name selection
 
       var select = document.getElementById("exampleFormControlSelect1");  
       console.log(select.value)      
@@ -195,62 +155,56 @@ arrPlayers = temp;
         $("#exampleFormControlSelect1 option[value='yourValue']").length > 0;     
       }};
 
+// The last provided player name is showing in the game as current player.      
+
       if(JSON.parse(localStorage.getItem('arrPlayers')) === null){
      currrentPlayer = document.querySelector('#testingUpdate').textContent;
       } else {
          currrentPlayer = arrPlayers[arrPlayers.length - 1];
-      }
+      };   
     
-
-    
-    console.log(currrentPlayer);
-    
-    function lastProvidedName() {
+function lastProvidedName() {
         if(JSON.parse(localStorage.getItem('arrPlayers')) === null){
-             document.querySelector('#testingUpdate').textContent;
-            
+             document.querySelector('#testingUpdate').textContent;            
             }
             else {
                 testingUpdate.textContent = arrPlayers[arrPlayers.length - 1]; 
-                console.log(arrPlayers[arrPlayers.length - 1])
+                
             }
-    }
-    lastProvidedName();
+    };
+lastProvidedName();    
     
-    
-   // counting scores of the game, one finished sequence one score
+// counting scores of the game, one finished sequence one score
+// had an issue to with scores, I couldnt find out how to show top scores before the game started, or  i could, but scores always was starting at 1.
    
-
-
-    function incrementScore(){
-   let oldScore = parseInt(document.getElementById("score").innerText);
-   document.getElementById("score").innerText = ++oldScore; 
-    let playerInfo = {"name" :currrentPlayer, "score": oldScore};
-    
-    // converting objects to a array and putting array into local.storage
-    // saving only incrementScore because I will need only info for highest scores
-    // Parse the serialized data back into an aray of objects
-    playerStats = JSON.parse(localStorage.getItem('session')) || [];
-    // Push the new data onto the array
+function incrementScore(){
+        
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = oldScore;
+    let playerInfo = {"name" :currrentPlayer, "score": oldScore};    
+// converting objects to a array and putting array into local.storage
+// saving only incrementScore because I will need only info for highest scores
+// Parse the serialized data back into an aray of objects
+    let playerStats = JSON.parse(localStorage.getItem('session')) || [];
+// Push the new data onto the array
     playerStats.push(playerInfo);
-    // Re-serialize the array back into a string and store it in localStorage
+// Re-serialize the array back into a string and store it in localStorage
     localStorage.setItem('session', JSON.stringify(playerStats));
-
-    console.log(playerStats);    
-               
-     //Showing players with top three scores in the Leader Board.    
+    playerStats = JSON.parse(localStorage.getItem('session'))    
+    
+//Showing players with top three scores in the Leader Board.    
 
     let lastThree = playerStats.sort((firstItem, secondItem) => firstItem.score - secondItem.score);
     let lastThreeList = lastThree.slice(Math.min(lastThree.length -3));
+    console.log(lastThreeList);
     let lastThreeReversed = lastThreeList.reverse();
     let listTop = document.getElementById("topThree");           
         listTop.innerHTML = lastThreeReversed.map(lastThreeReversed => {
             return `<li>${lastThreeReversed.name} - ${lastThreeReversed.score}</li>`;
                 })
                 .join(""); 
-                
-                         
-      //showing top20 of players with the most scores
+                   
+//showing top20 of players with the most scores
     let theList = playerStats.sort((firstItem, secondItem) => firstItem.score - secondItem.score);
     let bestTwenty = theList.slice(Math.min(theList.length -20));
     let topTwentyList = bestTwenty.reverse();
@@ -259,51 +213,33 @@ arrPlayers = temp;
           return `<li>${topTwentyList.name} - ${topTwentyList.score}</li>`;
               })
               .join(""); 
-              console.log(topTwentyList);  
 
-                              
-
-     //showing the highest scores of current player
-
+//showing the highest scores of current player
      result = playerStats.reduce((a, {name, score}) => {
         if (name.includes(currrentPlayer)) a.push({name, score});
         return a;
           }, []);
           
        let highScores =  Math.max.apply(Math, result.map(function(o) { return o.score; }));
-       document.getElementById("highScore").textContent = highScores;
-      
+       document.getElementById("highScore").textContent = highScores;       
         };
-       
+        
+incrementScore();
 
-    function reductionScore(){
+function reductionScore(){
         let oldScore = parseInt(document.getElementById("score").innerText);
         document.getElementById("score").innerText = --oldScore;
         };
+// showing dificullty level in the game and made conditions for each level
 
-        
-        // arrenging query solectors for colour sectors 
-    const topLeft = document.querySelector('.top-left-sector');
-    const topRight = document.querySelector('.top-right-sector');
-    const bottomLeft = document.querySelector('.bottom-left-sector');
-    const bottomRight = document.querySelector('.top-right-sector');
-
-    //creating a array to give random sequence in the game
-
-    const sequences = [topLeft, bottomLeft, bottomRight, topRight];
-
-    // showing dificullty level in the game and made conditions for each level
-
-let x = 500;
-let y = 1000;
-let difficulty = document.querySelector('#difficulty');
-let selectDif = document.getElementById("exampleFormControlSelect2"); 
+    let x = 500;
+    let y = 1000;
+    let difficulty = document.querySelector('#difficulty');
+    let selectDif = document.getElementById("exampleFormControlSelect2"); 
 
 
 function dif() {
-    
-    
-   // Re-serialize the array back into a string and store it in localStorage
+       // Re-serialize the array back into a string and store it in localStorage
    $(function() {
     $('#exampleFormControlSelect2').change(function() {
         localStorage.setItem('todoData', this.value);
@@ -312,7 +248,8 @@ function dif() {
         $('#exampleFormControlSelect2').val(localStorage.getItem('todoData'));
     }
     let realDif = localStorage.getItem('todoData');
-    difficulty.textContent = realDif;
+    difficulty.textContent = realDif;    
+
     if (realDif === "Medium"){
         clearTimeout()
          x = 500;
@@ -324,64 +261,66 @@ function dif() {
        y = 250;
     
         } else {
+        difficulty.textContent = selectDif.value;  
         clearTimeout()
         x = 500;
         y = 1000; 
-       }
-    });  
-};
+       }});  
+        };
 dif();  
 
-// need to reset sectors when player is onchange.
+ // arrenging query solectors for colour sectors 
+    const topLeft = document.querySelector('.top-left-sector');
+    const topRight = document.querySelector('.top-right-sector');
+    const bottomLeft = document.querySelector('.bottom-left-sector');
+    const bottomRight = document.querySelector('.top-right-sector');
+
+ //creating a array to give random sequence in the game
+
+    const sequences = [topLeft, bottomLeft, bottomRight, topRight];
 //getting length of the sector and picking a random index 
 function getRandomSector(){
    let sectors = [topLeft, bottomLeft, bottomRight, topRight]   
-   return sectors[parseInt(Math.random()* sectors.length)];
-    
-}
+   return sectors[parseInt(Math.random()* sectors.length)];    
+    };
  
-const sequence =  [getRandomSector()];
-let sequenceToGuess = [...sequence]
+    const sequence =  [getRandomSector()];
+    let sequenceToGuess = [...sequence]
 
 //flashing random colour from array sequences
-const flash = (sector) => {
-return new Promise(resolve =>{
-     
-   audioFlash()
-   sector.className += ' active';
-   setTimeout(() => {
-sector.className = sector.className.replace(' active', '');
-//send a message for problem solution............................
-
+    const flash = (sector) => {
+    return new Promise(resolve =>{     
+    audioFlash()
+    sector.className += ' active';
+    setTimeout(() => {
+    sector.className = sector.className.replace(' active', '');
 //setting break time between double colour flashing
-setTimeout(() => {
+    setTimeout(() => {
     resolve();
-}, x);
-}, y)
-});
-};
+    }, x);
+    }, y)
+    });
+    };
 
-let canClick = false;
+    let canClick = false;
 
-const sectorClicked = sectorClicked => {
+    const sectorClicked = sectorClicked => {
     if(!canClick) return;
     audioClick();    
     const expectedSector = sequenceToGuess.shift();    
     if (expectedSector === sectorClicked) {
     if (sequenceToGuess.length === 0) {
     //start new round
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
     correctAudio.play();
     sequence.push(getRandomSector());
     sequenceToGuess = [...sequence];
     setTimeout(() => {
         startFlashing()
-      }, 1000);
-    
+      }, 1000);    
     incrementScore();
-        }
-        
-       
-    } else {
+        }} else {
         //end game
        failAudio.play();
         reductionScore();       
@@ -390,14 +329,13 @@ const sectorClicked = sectorClicked => {
             startFlashing()
           }, 1500);
           canClick = false; // this is to prevent double click after sequence were flashed.        
-    }   
-};
+        }};
 
-const startFlashing = async () => {
+    const startFlashing = async () => {
     canClick = false;
     for (const sector of sequence) {
         await flash(sector);
     }
     canClick = true;
-}
+    };
  
