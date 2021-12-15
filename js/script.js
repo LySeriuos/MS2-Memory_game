@@ -108,8 +108,6 @@ WebAudio.prototype.play = function() {
         flashAudio.play();
     }
 
-
-
     let button = document.getElementById('mute');
     button.onclick = function (){
 
