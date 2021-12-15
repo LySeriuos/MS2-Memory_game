@@ -41,13 +41,72 @@ $(document).ready(function(){
           $("#notifyType").removeClass("failure");
         },2000);
       });
+// audio section
+// audio for the game. With these function able to manipulate sounds even with longer one
 
-      // audio for the game. With these function able to manipulate sounds evenwith longer one
-    let audio = new Audio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
-    let anotherAudio = new Audio("assets/sounds/1-note-high-pizz.mp3")
-    let failAudio = new Audio("assets/sounds/soundscrate-audience-impressed-ahhh-1.mp3")
-    let correctAudio = new Audio("assets/sounds/soundscrate-audience-cheers-variation-5.mp3")
-    let flashAudio = new Audio("assets/sounds/piano040.wav")
+function WebAudio(src) {
+    if(src) this.load(src);
+}
+
+WebAudio.prototype.audioContext = new AudioContext;
+
+WebAudio.prototype.load = function(src) {
+    if(src) this.src = src;
+    console.log('Loading audio ' + this.src);
+    var self = this;
+    var request = new XMLHttpRequest;
+    request.open("GET", this.src, true);
+    request.responseType = "arraybuffer";
+    request.onload = function() {
+        self.audioContext.decodeAudioData(request.response, function(buffer) {
+            if (!buffer) {
+                if(self.onerror) self.onerror();
+                return;
+            }
+
+            self.buffer = buffer;
+
+            if(self.onload)
+                self.onload(self);
+        }, function(error) {
+            self.onerror(error);
+        });
+    };
+    request.send();
+};
+
+WebAudio.prototype.play = function() {
+    var source = this.audioContext.createBufferSource();
+    source.buffer = this.buffer;
+    source.connect(this.audioContext.destination);
+    source.start(0);
+};
+
+
+    let audio = new WebAudio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
+    audio.onload = function() {
+        audio.play();
+    }
+
+    let anotherAudio = new WebAudio("assets/sounds/1-note-high-pizz.mp3")
+    anotherAudio.onload = function() {
+        anotherAudio.play();
+    }
+    
+    let failAudio = new WebAudio("assets/sounds/soundscrate-audience-impressed-ahhh-1.mp3")
+    failAudio.onload = function() {
+        failAudio.play();
+    }
+
+    let correctAudio = new WebAudio("assets/sounds/soundscrate-audience-cheers-variation-5.mp3")
+    correctAudio.onload = function() {
+        correctAudio.play();
+    }
+    
+    let flashAudio = new WebAudio("assets/sounds/piano040.wav")
+    flashAudio.onload = function() {
+        flashAudio.play();
+    }
 
 
 
