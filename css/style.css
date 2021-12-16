@@ -4,6 +4,7 @@
 
 /* styling body */ 
 
+
 body {
     margin: 10px auto;
     position: relative;
@@ -102,23 +103,27 @@ body {
 
      .top-left-sector {    
     background-color: rgba(255, 4, 4, 0.6);
-    border: 10px solid red;    
+    border: 10px solid red;
+    -webkit-appearance: none;    
     }
 
     .top-right-sector {    
     background-color: rgba(0, 0, 255, 0.6);
     border: 10px solid blue;
+    -webkit-appearance: none;
    }
 
     .bottom-left-sector {   
     background-color: rgba(0, 128, 0, 0.6);
     border: 10px solid green;  
-    color: currentColor;      
+    color: currentColor;   
+    -webkit-appearance: none;   
     }
 
     .bottom-right-sector {   
      background-color: rgba(255, 217, 0, 0.6);
-    border: 10px solid gold;    
+    border: 10px solid gold;
+    -webkit-appearance: none;    
     }
 
     /* Colours when touching/clicking the element */
@@ -172,7 +177,7 @@ body {
     .my-col-bottom-left {
         justify-content: space-around;
         padding: 0;
-        text-align: end;
+        text-align: right;
         list-style: none;
     }
 

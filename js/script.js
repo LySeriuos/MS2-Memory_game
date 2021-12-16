@@ -43,6 +43,7 @@ $(document).ready(function(){
       });
 // audio section
 // audio for the game. With these function able to manipulate sounds even with longer one
+document.addEventListener("touchstart", function(){}, true);
 
 function WebAudio(src) {
     if(src) this.load(src);
@@ -123,12 +124,17 @@ WebAudio.prototype.play = function() {
             $('#mute').removeClass('muted').addClass('unmuted');
     }};
 
+    function touchStarted() {
+        getAudioContext().resume();
+      }
+
 function enableMute() {    
     audio.muted = true;
     anotherAudio.muted = true;
     failAudio.muted = true;
     correctAudio.muted = true;
-    flashAudio.muted = true;    
+    flashAudio.muted = true;
+        
 };
 
 function disableMute() { 
