@@ -25,67 +25,35 @@
 ***
 ## Introduction
 ---
-* This comprehensive website was designed for my friend´s company called Memory Game. The main goal of the site is to show work examples, progress of the company and to be contacted easily by filling up a form about customers project.
+* **Memory Game** is online game based on popular table game named **Simon**. Target is to check how good yor memory is! The Memory Game fits all ages from arround 2 years old to let's say 99! The main goal is to repeat given sequneces and  get better result than last time also beat on scores your friends. 
 
-* Tomas&Byggservice is a building company whcih is based in south Sweden. The company is started in 2016 and by doing quality job is very succesfull. This company is capable to make many individual projects. It is very important to share different expierence they had been working on to find potcial customers. 
+* Memory Game is my second Milestone project and this is 2nd of 4 projects during the Software Developer Program at The Code institute.
 
-* Tomas&Byggservise is my fisrt Milestone project and this is 1 of 4 projects during the Software Developer Program at The Code institute.
+### Requirements
 ---
-### Requirements:
----
-1. HTML, CSS
-2. Static front end project: Write custom HTML5 and CSS3 code to create a website of at least 3 pages.
-3. Information Architecture: Incorporate a main navigation menu and structured layout.
-4. Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
-5. Version Control: Use Git & GitHub for version control.
-6. ttribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
-7. Deployment: Deploy the final version of your code to a hosting platform such as GitHub Pages.
+1. HTML, CSS, JavaScript.
+2. Users are able to interact with the site in their particular way, to achieve their
+personal goals and derive answers to their specific questions.
+The site owner advances their own goals by providing this functionality, potentially
+by being a regular user themselves.
+3. Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
+4. Version Control: Use Git & GitHub for version control.
+5. Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
+6. Deployment: Deploy the final version of your code to a hosting platform such as GitHub Pages.
 
-
-
-UX
+### UX
 ---
 
-The potential user of this website:
-* New and old customers
+The potential user of this Memory Game:
+* All ages from 2 years old.
 
-What custmers are wwilling to find:
+What players are willing to find:
 
-* As a new customer I would like to find easilly full comtact information.
-* As new customer I want to be contacted deppend on my project.
-* As new customer I would like to have a chance to write about my project directly in the webpage.
-* As an old customer I would like to see the progress of the company.
-* As an old customer I would like to recomend company thru the webpage.
-
-### Development Planes
----
-To get the best results I worked together with the client, Memory Game owner, for informative, functional and comprehensive website.
-
-### Strategy and Scope
----
-Content Requirements
-
-The user will be looking for:
-1. Information about the company.
-2. Done projects images and descriptions.
-3. Contacts.
-4. Social Media.
-
-### Functionality Requirements
----
-The user will be able to:
-1. Navigate on the different screen sizes comfortably. 
-2. Get estimate of the future project.
-3. Get the information about the done projects.
-4. Easily contact the company.
-5. Connect with the company thru the social media.
-
-### Structure
----
-Website information was projected in a ranked data structure to be sure that users can navigate the website easily:  
-
-![Strategy Table](assets/read.me/Structure.png)
-
+* Fun game, easy to understandt.
+* To Load and Play.
+* To be able save scores.
+* To compete with friends.
+* To change difficulties.
 
 ## Skeleton 
 ---
@@ -104,76 +72,52 @@ Contact-us Page:
 ![Contact-us Page Wireframe](assets/read.me/tomas.byggservice.contact-us.png "Contact-us Page Wireframe")
 
 
-
-
-
 ### Design
 ---
-The main idea was to create a stylish website with easy readable fonts and colours. The main fonts are ["Exo"](https://fonts.google.com/specimen/Exo?query=Exo) and "Exo"["Open Sans"](https://fonts.google.com/specimen/Open+Sans?query=open+sans). As a back up font going to be "Sans Serif". Colours was chosed to get fit in all pages and the main colour was brown as a main Hero image in the Home page.
+* The main idea was to create a stylish game with simple design to be easy understanble. The main font is ["Orbitron"](https://fonts.google.com/specimen/Orbitron). As a back up font going to be "Sans Serif". 
+* The heart of the game is four quadrants in red, blue, green and yellow. This recreates "Simone" game colours. 
+* Buttons has slightly different colourss: purple and light green. 
+* The main colours are black and green. Black is background colour and green is for the game status and information. It is eye catching combo and it look like it is from space :) All colours together gives lively and playful feeling to player.
+* Midle of the page was given to the heart of the game. These quadrants takes most space as it is the most important part. Around it is game stats and player information. This information is visible in all screen sizes and is easy to read and understand. at the bottom we can find all the menu buttons. These stays at the bottom at all screen sizes because user is not going to use them often.
 
-### Visualization
+### Features
 ---
-The selected images are realtive to the company specialization and gives one more information of what services has company.
-All images has alternative text to describe the images if something happens with the network. 
+* The Memory Game developed as responsive. It can be played on mobile phones, tablet computers and on big screens.
+* The Memory Game builded as a simple single-player pattern-matching memory game.
+* Player can play as Anonym player or he/she can create own player and compete to other players.
+* Three game speeds to choose. Easy, Medium or Hard.
+* Game sounds for all game actions. Winning and loosing sound instead of "alarm messages".
+* Mute/Unmute button for the game sounds.
+* Memory game page layout shows:
+  * Leader Board of best three players.
+  * Current player name.
+  * Buttons for game menu.
+  * Current scores.
+  * Chosen difficulty level.
+  * Current player highest scores off all time.
+  
 
-Back to top ⇧
+### Further Testing
 
-## Features
+
+* The Memory Game was tested on Google Chrome, Opera, Mozilla Firefox, Microsoft Edge and Safari, mobile Safari, mobile Chrome browsers.
+* The Memory Game was viewed on a variety of devices such as Desktop, Laptop, Android phones, iPhone7, iPhone 8 & iPhone13.
+* Friends and family members were asked to review the game and documentation to point out any bugs and/or user experience issues.
+* All known bugs are fixed.
+
+
+### Issues-and-Bugs found while Testing
 ---
-
-### Design Features
-
-Responsive design on a navigation:
-
-* Company name in the Header is the way to get back to the home page in all resolutions.
-* Footer and Header is fixed on all devices to have a very simple design on each resolution.
-* For the best user expierence smaller screen has toggler icon as collapsible sidebar menu to get full expierennce of the webpage.
-* Home and About Us pages has Call to action buttons and redirects user to cotact page to fill up the form.
-
-
-The Home Page has two columns and smaller screens has one column. 
-* Hero image used as the full width background image and it covers entire webpage on all devices to make a strong first impression. 
-* Middle container divided by two columns on Desktop Home page, taking 50% each column. On a smaller screens left column is taking the top position and the right column goes under it to have best clarity. Left column has information about possible projects and the right column has company motto.
-
-
-About Us page
-
-The About Us page is a little bit different from Home Page but it is still two collumns wide on Desktop and one column on the smaller screens.
-* Hero image occupying 50% of the page on the right side. When resolution became smaller and responsive design turn on, Hero image take "under" position and filling full width of the screen.
-* Middle container on the left side shows company's history and it takes another half of the page. On smaller screens text is talking top position.
-
-Gallery page
-
-* For this page I chosed similar background colour to be matching whole page but not too bright. 
-* For the images I chosed carousel template from Bootstrap too show good size images on all screens. It takes up to 70% screen width.
-
-Conatact Page
-
-* Hero image is used like in the Home page, to make a nice full size background of the webpage on all screen sizes.
-* Middle container is divided to two columns on the desktop. On the left collumn has the form to be filled up. The form is simple, but makes easy to request information from the building company. The right side column has all the contact details. Smaller resolutions makes this page only one column. The form takes top position and the contact details is under it. 
-
-Further Testing
-
-
-* The Website was tested on Google Chrome, Internet Explorer (there is some bugs), Microsoft Edge and Safari browsers.
-* The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
-* A large amount of testing was done to ensure that all pages were linking correctly.
-* Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
-* Known Bugs
-* On some mobile devices the Hero Image pushes the size of screen out more than any of the other content on the page.
-* A white gap can be seen to the right of the footer and navigation bar as a result.
-* On Internet Explorer Browser gallery page has big gap below gallery images.
-* Contact-us page conainers are too high on IE.
-* Contact-us button is too wide on IE in contact-us page.
-
-### Issues-and-Bugs
----
-1. Navigation spaces between nav menu items where too narrow. 
-2. There was bad contrast on nav menu items in "Active" mode, so developer changerd to bigger font size with the same colour. Works much better.
-3. There was missing "Target='_blank'" on all the social media links, as well on submit button.
-4. The biggest issue was with bootsraps container and container fluid. It was hard to get in to position on 50% shered screen to one column. 
-The solution where to change 50/50 ratio or 6/6 columns to 9 columns of 12. Developer got plenty place to move arround with the columns.
-5. Footer wasn't sticky on smaller devices. Fixed with  "justify-content-around".
+1. Issue with the game sounds. 
+During test on iphone 13 **Safari** Mobile noticed that sound is very delayed while all other browsers had no issues.   
+I found a solution to put all game sounds to buffert after page loads. It had fixed the issue with the **Safari**.
+2. Issue with the **mute/unmute** button. After I fixed issue with mobile Safari it gave me another issue that my mute/unmute button doesn't worked because I used buffert. All sounds was taken from there and not played directly from the page.   
+Issue was fixed by rewriting buffer source to empty for **mute** and for **unmute** it was rewrited again as normal, with the sounds.
+3. Issue with **:active** while touching/clicking color squares in the game.  
+During test on mobile **Safari** ( All other browser had no issue) there was no visual effect while touching/clicking game squares. I had to lower transparency to 0,9 in my RGBA for **:Active** to fix this issue. 
+4. Issue with delaying touch reaction on mobile **Safari**. During test on Iphone 13 the game couldn't take all touches if it was touched/clicked fast.
+The issue was solved by adding eventListener **'touchStart'**. All other tested browsers doesn't had this issue. 
+5. Issue with **:Hover** on touch devices. This issue was on all mobile devices. After the button was touched the **:Hover** effect wasn't disapearing untill it was touched on other place or other button. The issue was fixed by chinging **:Hover** to **:Active** effect. Color change only while touching to inform player that it was touched.
 6. Underline hover had the line on all the buttons. Removed by "text-decoration: none;"
 
 
