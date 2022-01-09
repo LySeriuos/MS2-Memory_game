@@ -46,7 +46,7 @@ $(document).ready(function(){
 document.addEventListener("touchstart", function(){}, true);
 
 
-WebAudio.prototype.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
 
 
 function WebAudio(src) {
@@ -54,6 +54,7 @@ function WebAudio(src) {
 }
 
 
+WebAudio.prototype.audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
 WebAudio.prototype.load = function(src) {
     if(src) this.src = src;
@@ -80,12 +81,6 @@ WebAudio.prototype.load = function(src) {
     request.send();
 };
 
-WebAudio.prototype.play = function() {
-    source = this.audioContext.createBufferSource();
-    source.buffer = this.buffer;
-    source.connect(this.audioContext.destination); 
-    source.start(0);   
-};
 
     let audio = new WebAudio("assets/FOODGware_Wine stopper (ID 0274)_BSB (1).wav");
     audio.onload = function() {
@@ -111,53 +106,90 @@ WebAudio.prototype.play = function() {
     flashAudio.onload = function() {
         flashAudio.play();
     }
+
+    WebAudio.prototype.play = function() {
+    source = this.audioContext.createBufferSource();
+    source.buffer = this.buffer;
+    source.connect(this.audioContext.destination); 
+    source.start(0);   
+};
+
     // the sounds do not start play directly, all game sounds after page loads is in silence mode class 
     let button = document.getElementById('mute');
+    let muteIcon = JSON.parse(localStorage.getItem('muteIcon')) || []; 
+
+    
+
+    
+
     button.onclick = function (){
         if (audio.muted === false) {               
             enableMute();
-            $('#mute').addClass('muted')
+            
+             $('#mute').addClass('muted');
+            if ( $('#mute').hasClass('unmuted') ){
+            $('#mute').removeClass('unmuted').addClass('muted')
+            muteIcon.push('muted'); 
+            
             WebAudio.prototype.play = function() {
                 source = this.audioContext.createBufferSource();
                 source.buffer = this.buffer;
-                source.connect(this.audioContext.destination);
-                source.start(0);                
-               source.stop(0) // 'stop' destroys the buffert
-               source = this.audioContext.createBufferSource(); // so we need to create a new one
-              source.buffer = this.buffer;                
-               source.connect(this.audioContext.destination);
-            }          
-     }
-     else {   // overwriting function to play sounds when used class "unmuted"      
+                
+            }}
+            } else { 
+                disableMute() ;     
+        $('#mute').addClass('unmuted');
+            if ( $('#mute').hasClass('muted') ){
+            $('#mute').removeClass('muted').addClass('unmuted')
+            muteIcon.push('unmuted');  
+                
+           // overwriting function to play sounds when used class "unmuted"      
            WebAudio.prototype.play = function() {
             source = this.audioContext.createBufferSource();
             source.buffer = this.buffer;
             source.connect(this.audioContext.destination);
             source.start(0);        
-        };
-        disableMute();               
-        $('#mute').addClass('unmuted');
-            if ( $('#mute').hasClass('muted') )
-            $('#mute').removeClass('muted').addClass('unmuted');
-    }};
+        }; 
+    }         
+    }
+    localStorage.setItem('muteIcon', JSON.stringify(muteIcon));
+}
+// saving current sound settings mute or unmute to the local storage. After reload it stays the same as before.
+// disconnecting buffer source from audioContext destination gives muted sound in the game.
+let trala = JSON.parse(localStorage.getItem('muteIcon'));
+console.log(trala);
+let gameFun = trala.slice(Math.max(trala.length - 5, 0))
+console.log(gameFun);
 
+let buttonIcon = gameFun[gameFun.length -1];            
+console.log(buttonIcon); 
+
+if(buttonIcon === 'muted'){
+    $('#mute').removeClass().addClass('muted')
+    WebAudio.prototype.play = function() {
+        source = this.audioContext.createBufferSource();
+        source.buffer = this.buffer;          
+    };
+};
+
+    
+  
+     
+   
     function touchStarted() {
         getAudioContext().resume();
       }
       
 
-function enableMute() {  
-    //WebAudio.prototype.play = true;  
+function enableMute() {     
     audio.muted = true;
     anotherAudio.muted = true;
     failAudio.muted = true;
     correctAudio.muted = true;
     flashAudio.muted = true;
-        
 };
 
-function disableMute() { 
-   // WebAudio.prototype.play = false;
+function disableMute() {  
     audio.muted = false;
     anotherAudio.muted = false;
     failAudio.muted = false;
@@ -421,4 +453,5 @@ function getRandomSector(){
     }
     canClick = true;
     };
- 
+
+
