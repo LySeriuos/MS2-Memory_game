@@ -30,7 +30,7 @@
         </ul>     
         <ul>
         <h4>Player:</h4>
-        <h5 id="testingUpdate">Anon</h5>
+        <h5 id="theCurrentPlayer">Anon</h5>
         </ul>
         <ul>
         <h4>Mute:</h4>
@@ -84,9 +84,9 @@
     </div>
         <div class="col my-col-bottom-right">
             <ul>
-            <li><button class="btn btn-primary btn-right btnRules" type="submit"><a id="link" href="#element_target"></a>Rules</button></li>
-            <li><button class="btn btn-primary btn-right btnChoossPlayer" >Choose a player</button></li>
-            <li><button class="btn btn-primary btn-right btnLeaderboard" type="submit"><a id="link" href="#topTwenty_target"></a>Leaderboard</button></li>
+            <li><button class="btn btn-primary btn-right btnRules" type="button"><a id="link" href="#element_target"></a>Rules</button></li>
+            <li><button class="btn btn-primary btn-right btnChoossPlayer" type="button">Choose a player</button></li>
+            <li><button class="btn btn-primary btn-right btnLeaderboard" type="button"><a id="linkTopTwenty" href="#topTwenty_target"></a>Leaderboard</button></li>
             </ul>
     </div>
     
@@ -99,18 +99,18 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2"><a id="choose_player"></a>Choose a player:</label>
-                            <select class="form-control" onchange="chosePlayer()" id="exampleFormControlSelect1" > 
-                                <option>Anon</option>                                                          
+                            <select class="form-control"  id="dropDownSelection" > 
+                                   <option selected = "selected" value="Anon">Anon</option>                                                       
                               </select>
                           </div>
                         <div class="form-group name_form">
-                          <label for="exampleFormControlInput1">New Player:</label>
-                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Create new player">
-                          <ol id="listitem"></ol> 
+                          <label for="userInput">New Player:</label>
+                          <input type="text" class="form-control" id="userInput" placeholder="Create new player">
+                           
                           
                         </div>
                         <div class="form-group level_form">
-                          <label for="exampleFormControlSelect1">Level:</label>
+                          <label for="dropDownSelection">Level:</label>
                           <select class="form-control"  id="exampleFormControlSelect2" onchange="dif()">
                             <option selected = "selected" value="Easy">Easy</option>
                             <option value="Medium">Medium</option>
@@ -118,7 +118,7 @@
                           </select>
                         </div>                        
                       </form>                    
-                <li id="no-style-button"><button class="btn btn-primary btn-left btn-start btnChoosePlayer" id= "modal_button" value="Add New" type="submit">Start</button>
+                <li id="no-style-button"><button class="btn btn-primary btn-left btn-start btnChoosePlayer" id ="modal_button" type='button'>Start</button>
                 </li>                    
                 </div>
             </div>
@@ -148,35 +148,33 @@
             <li id="no-style-button"><button class="btn btn-primary btn-left " id= "modal_button_rules"  type="submit">Close</button>
             </li>                    
             
-            </div>
+            
         </div>
     </div>
 </div>
-<div class="modal-leaderboard" id="modal-leaderboard" style="display:none;" tabindex="-1" role="dialog">
+<div class="modal-leaderboard" id="modal_leaderboard_modal" style="display:none;" tabindex="-1" role="dialog">
     <div class="modal" id="modal-leaderboard">
-        <button class="close-btn-leaderboard" id="close topTwenty_target"><i class="fa fa-times"></i></button>
+        <button class="close-btn-leaderboard" id="close"><i class="fa fa-times"></i></button>
         <div class="modal-content">
             <div class="header">
                 <div class="col mobile-template mobile-template-bottom align-text-center">
                     <ul>   
                     <h4>Leader Board:</h4>                    
-                    <ol id="topFifteen"></ol>
+                    <ul id="topFifteen"></ul>
                     </ul> 
                 </div>
             </div>
             <div>
-            <li id="no-style-button"><button class="btn btn-primary btn-left modal_button_leaderboard" id= "modal_button_leaderboard"  type="submit">Close</button>
+            <li id="no-style-button"><button class="btn btn-primary btn-left modal_button_leaderboard" id= "modal_button_leaderboard" type="button">Close</button>
             </li>          
             </div>
         </div>
     </div>
 </div>
 </div>
-        
-        
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 </body>
+
 </html>

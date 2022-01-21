@@ -1,8 +1,8 @@
 # Memory Game
 
-![Tomas&Byggservice Mockup Images](assets/read.me/tomas.byggservice.responsive.png)
+![Memory game Mockup Images](assets/read.me/tomas.byggservice.responsive.png)
 
-[View the live project here](https://github.com/LySeriuos/Tomas-Byggservice-MS1)
+[View the live project here](https://github.com/LySeriuos/MS2-continue)
 
 ## Table of contents
 1. [Introduction](#Introduction)
@@ -51,9 +51,9 @@ What players are willing to find:
 
 * Fun game, easy to understandt.
 * To Load and Play.
-* To be able save scores.
+* To be able to save scores.
 * To compete with friends.
-* To change difficulties.
+* To change difficulty levels.
 
 ## Skeleton 
 ---
