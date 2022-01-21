@@ -5,13 +5,10 @@ $(document).ready(function(){
             theCurrentPlayer.innerText = localStorage.getItem("playerSelected")  
                        
             }   else  if ((localStorage.getItem("playerSelected") === null) && (localStorage.getItem("allCreatedPlayers") === null)){
-                theCurrentPlayer.textContent = document.getElementById("dropDownSelection").value;
-                                                
+                theCurrentPlayer.textContent = document.getElementById("dropDownSelection").value;                                                
                 } else {
-                    theCurrentPlayer.textContent = allCreatedPlayers[allCreatedPlayers.length - 1];  
-                     
-                };
-                
+                    theCurrentPlayer.textContent = allCreatedPlayers[allCreatedPlayers.length - 1];                      
+                };                
                 chosePlayer();         
        
     // Clicking button Rules to open modal
@@ -41,6 +38,7 @@ $(document).ready(function(){
     // Clicking button Rules to open modal
          $('.btnLeaderboard').click(function(){
         $('.modal-leaderboard').fadeIn('slow');
+        alert('working')
         });
     //Closing modal
         $('.close-btn-leaderboard, #modal_button_leaderboard').click(function(){
