@@ -184,7 +184,8 @@ Click Here to retrieve pictures for some of the buttons and more detailed explan
 ## Credits 
 
 ### Audio & Media
-- All sounds were sourced from the [Unsplash](https://soundscrate.com/ "Link to SoundsCrate") 
+- All sounds were sourced from the [SoundsCrate](https://soundscrate.com/ "Link to SoundsCrate")
+- All Images were sourced from the artist Romson Preechawit in [Unsplash](https://unsplash.com/ "Link to Unsplash") 
 - The text used in the 404 error page was sourced from [CopyAndPasteFonts](https://www.copyandpastefont.com/ "Link to Font editor") and edited by the developer.
 
 # Technologies Used
