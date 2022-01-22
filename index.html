@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 
-<body align-text-center> 
+<body> 
    <header class="header-style">
         <p>Memory Game</p>
 </header>
@@ -25,16 +25,16 @@
     <div class="col-3 align-text-center" id="column-order-2">
         <div class="col mobile-template mobile-template-bottom">
         <ul class="hide-on-mobile">   
-        <h4>Leader Board:</h4>        
-        <ul id="topThree"></ul>
+        <li><h4>Leader Board:</h4></li>       
+        <li id="topThree"></li>
         </ul>     
         <ul>
-        <h4>Player:</h4>
-        <h5 id="theCurrentPlayer">Anon</h5>
+        <li><h4>Player:</h4></li>
+        <li><h5 id="theCurrentPlayer">Anon</h5></li>
         </ul>
         <ul>
-        <h4>Mute:</h4>
-        <h3><button id="mute" class="unmuted" onclick="enableMute(), disableMute()" type="button"></button></h3>
+        <li><h4>Mute:</h4></li>
+        <li><button id="mute" class="unmuted" onclick="enableMute(), disableMute()" type="button"></button></li>
     </ul>
     </div>
     </div>
@@ -55,23 +55,23 @@
       <div class="col-3 align-text-center" id="column-order-1">
           <div class="col mobile-template">
                     <ul>
-                    <h4 id="scores" style="list-style:none;">Scores:<br>
+                    <li><h4 id="scores" style="list-style:none;">Scores:<br>
                         <br>
-                        <li><span id="score">0</span></li></h4>
+                        <span id="score">0</span></h4></li>
                     </ul>
                     
                     <ul>
-                    <h4>Difficulty Level:</h4>
+                    <li><h4>Difficulty Level:</h4></li>
                     <li id="difficulty"></li>                                   
                 </ul>
                 <ul>
-                    <h4 style="list-style:none;">Highest Scores:<br>
+                <li><h4 style="list-style:none;">Highest Scores:<br>
                         <br>
-                    <li><span id="highScore">0</span></li></h4>
+                    <span id="highScore">0</span></h4></li>
                 </ul>    
                     
-                    </div>
-                </div>
+                 </div>
+           </div>
     </div>
   </div>
   <div class="row row-3">
@@ -84,15 +84,15 @@
     </div>
         <div class="col my-col-bottom-right">
             <ul>
-            <li><button class="btn btn-primary btn-right btnRules" type="button"><a id="link" href="#element_target"></a>Rules</button></li>
+            <li><button class="btn btn-primary btn-right btnRules" type="button">Rules</button><a id="link" href="#element_target"></a></li>
             <li><button class="btn btn-primary btn-right btnChoossPlayer" type="button">Choose a player</button></li>
-            <li><button class="btn btn-primary btn-right btnLeaderboard" type="button"><a id="linkTopTwenty" href="#topTwenty_target"></a>Leaderboard</button></li>
+            <li><button class="btn btn-primary btn-right btnLeaderboard" type="button">Leaderboard</button><a id="linkTopTwenty" href="#topTwenty_target"></a></li>
             </ul>
     </div>
     
     <div class="modal-container" style="display:none;" id="modal-container" tabindex="-1" role="dialog">
         <div class="modal" id="modal">
-            <button class="close-btn" id="close"><i class="fa fa-times"></i></button>
+            <button class="close-btn"><i class="fa fa-times"></i></button>
             <div class="modal-content">
                 <div class="header">
                     <h2 class="logo">Memory game </h2>
@@ -118,8 +118,7 @@
                           </select>
                         </div>                        
                       </form>                    
-                <li id="no-style-button"><button class="btn btn-primary btn-left btn-start btnChoosePlayer" id ="modal_button" type='button'>Start</button>
-                </li>                    
+                <button class="btn btn-primary btn-left btn-start btnChoosePlayer no-style-button" id ="modal_button" type='button'>Start</button>                                   
                 </div>
             </div>
         </div>
@@ -127,7 +126,7 @@
 
 <div class="modal-container-2" style="display:none;" id="modal-container-2" tabindex="-1" role="dialog">
     <div class="modal" id="modal-2">
-        <button class="close-btn-rules" id="close"><i class="fa fa-times"></i></button>
+        <button class="close-btn-rules"><i class="fa fa-times"></i></button>
         <div class="modal-content">
             <div class="header">
                 <h2 class="logo">Memory game </h2>                          
@@ -145,9 +144,8 @@
                     <li>Hard - Fastest game speed.</li>
                 </ol>
             </li>   
-            <li id="no-style-button"><button class="btn btn-primary btn-left " id= "modal_button_rules"  type="submit">Close</button>
-            </li>                    
-            
+            <li><button class="btn btn-primary btn-left no-style-button" id= "modal_button_rules"  type="submit">Close</button></li>                          
+                </ol>
             </div>  
         </div>
     </div>
@@ -159,14 +157,14 @@
             <div class="header">
                 <div class="col mobile-template mobile-template-bottom align-text-center">
                     <ul>   
-                    <h4>Leader Board:</h4>                    
-                    <ul id="topFifteen"></ul>
+                    <li><h4>Leader Board:</h4></li>                    
+                    <li id="topFifteen"></li>
                     </ul> 
                 </div>
             </div>
             <div>
-            <li id="no-style-button"><button class="btn btn-primary btn-left modal_button_leaderboard" id= "modal_button_leaderboard" type="button">Close</button>
-            </li>          
+            <button class="btn btn-primary btn-left modal_button_leaderboard no-style-button" id= "modal_button_leaderboard" type="button">Close</button>
+                      
             </div>
         </div>
     </div>
